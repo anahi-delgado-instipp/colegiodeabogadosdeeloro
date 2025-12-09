@@ -1,0 +1,60 @@
+{% load static %}
+
+<nav class="navbar navbar-top navbar-expand navbar-dark bg-gradient-green border-bottom">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
+
+      <!-- SEARCH -->
+      <form class="navbar-search navbar-search-light form-inline mr-sm-3">
+        <div class="form-group mb-0">
+          <div class="input-group input-group-alternative input-group-merge">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-search"></i></span>
+            </div>
+            <input class="form-control" placeholder="Buscar" type="text">
+          </div>
+        </div>
+        <button type="button" class="close" data-action="search-close" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </form>
+
+      <!-- FOTO Y USUARIO A LA DERECHA -->
+      <ul class="navbar-nav align-items-center ml-auto">
+
+        <li class="nav-item dropdown">
+          <a class="nav-link pr-0" href="#" data-toggle="dropdown">
+            <div class="media align-items-center">
+              
+              <!-- FOTO DEL USUARIO -->
+              <span class="avatar avatar-sm rounded-circle">
+                <img alt="Image" src="{% static 'assets/img/theme/team-4.jpg' %}">
+              </span>
+
+              <!-- NOMBRE AL LADO -->
+              <div class="media-body ml-2 d-none d-lg-block">
+                <span class="mb-0 text-sm font-weight-bold">
+                  {{ request.user.username }}
+                </span>
+              </div>
+
+            </div>
+          </a>
+
+          <div class="dropdown-menu dropdown-menu-right">
+            <a href="{% url 'profile' %}" class="dropdown-item">
+              <i class="ni ni-single-02"></i> Mi Perfil
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="{% url 'logout' %}" class="dropdown-item">
+              <i class="ni ni-user-run text-red"></i> Cerrar Sesión
+            </a>
+          </div>
+
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
+</nav>

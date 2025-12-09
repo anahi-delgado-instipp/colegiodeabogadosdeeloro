@@ -1,0 +1,1042 @@
+{% load static %}
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <link rel="icon" href="{% static 'assets/img/logo/logoemp.png' %}" type="image/png">
+  <title>Colegio de Abogado de el oro</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <!--CSS-PAGINA INFORMATIVA-->
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'assets/css/argon.css' %}">
+
+  <!-- CSS Personalizado -->
+  <link href="{% static 'assets/css/personalizado.css' %}" rel="stylesheet">
+
+
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top bg-verde-oro">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+
+      <nav id="navmenu" class="navmenu d-flex align-items-center"
+        style="display:flex; align-items:center; justify-content:space-between; width:100%;">
+
+        <!-- LOGO -->
+        <a href="{% url 'pagina_informatica' %}" class="nav-logo me-3">
+          <img src="{% static 'assets/img/logo/logoemp.png' %}" alt="Colegio de Abogados"
+            style="height:80px; width:auto; display:block;">
+        </a>
+
+        <!-- MENÚ AL LADO DERECHO -->
+        <ul class="nav-links d-flex align-items-center"
+          style="display:flex; align-items:center; gap:25px; margin:0; padding:0; list-style:none;">
+
+          <li><a href="#hero" class="active">Inicio</a></li>
+          <li><a href="#about">Nosotros</a></li>
+          <li><a href="#events">Eventos</a></li>
+          <li><a href="#testimonials">Testimonios</a></li>
+          <li><a href="#team">Equipo</a></li>
+          <li><a href="#noticias">Noticias</a></li>
+
+          <li><a href="#contact">Contacto</a></li>
+
+          <li>
+            <a href="{% url 'login' %}">
+              <i class="bi bi-people" style="margin-right: 5px;"></i>
+              Iniciar sesión
+            </a>
+          </li>
+
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+
+    </div>
+  </header><!-- End Header -->
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section">
+
+      <img src="{% static 'assets/img/gallery/fondoabog.jpeg' %}" alt="Fondo del presidente" class="hero-bg">
+
+      <div class="container">
+        <br>
+        <div class="row gy-4 justify-content-between">
+
+          <div class="col-lg-4 order-lg-last hero-img" data-aos="zoom-out" data-aos-delay="100">
+            <img src="{% static 'assets/img/gallery/presw.jpeg' %}" class="img-fluid" alt="Abogado">
+          </div>
+
+          <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-in">
+            <h1>Inicia sesión en <span>Colegio de Abogados</span> de el Oro</h1>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+    <!-- /Hero Section -->
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row align-items-xl-center gy-5">
+
+          <div class="col-xl-5 content">
+            <h3>Sobre nosotros</h3>
+            <h2>Estudio Jurídico</h2>
+            <p> Somos un estudio jurídico en la provincia de El Oro, dedicado a brindar asesoría y representación legal
+              con ética, responsabilidad y transparencia. Contamos con un equipo capacitado en distintas áreas del
+              derecho, comprometido con ofrecer soluciones eficientes y adaptadas a cada caso. </p>
+            <p> Nos caracterizamos por una comunicación clara, orientación precisa y un trabajo jurídico riguroso que
+              permite a nuestros clientes tomar decisiones informadas y seguras. </p>
+            <p> Atendemos a personas, familias, empresas e instituciones, ofreciendo un acompañamiento cercano,
+              profesional y personalizado en cada etapa del proceso. </p>
+          </div>
+
+          <div class="col-xl-7">
+            <div class="row gy-4 icon-boxes">
+
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <br>
+                <div class="icon-box">
+                  <i class="bi bi-buildings"></i>
+                  <h3>Inauguración del campeonato interno</h3>
+                  <p>Un espacio que promueve la integración, el bienestar y el compañerismo entre nuestros miembros
+                    mediante actividades deportivas que fortalecen la unidad institucional.</p>
+                </div>
+              </div>
+              <br>
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <br>
+                <div class="icon-box">
+                  <i class="bi bi-clipboard-pulse"></i>
+                  <h3>Presentación de reinas</h3>
+                  <p>Evento que destaca la elegancia, liderazgo y compromiso de nuestras representantes, reforzando la
+                    identidad y el espíritu institucional.</p>
+                </div>
+              </div>
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+                <br>
+                <div class="icon-box">
+                  <i class="bi bi-command"></i>
+                  <h3>Selección de fútbol</h3>
+                  <p>Equipo institucional que sobresale por su disciplina, talento y dedicación, representando con
+                    orgullo a nuestro Colegio en diversas competencias.</p>
+                </div>
+              </div>
+
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
+                <div class="icon-box">
+                  <i class="bi bi-graph-up-arrow"></i>
+                  <h3>Obra Pública</h3>
+                  <p>Comprometidos con el desarrollo social, impulsamos proyectos que contribuyen al crecimiento y
+                    bienestar de la comunidad.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+    </section> <!-- /About Section -->
+
+    <!-- Misión y Visión Section -->
+    <section id="mision-vision" class="about section light-background">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="section-title text-center mb-5">
+          <h2>Misión y Visión</h2>
+          <div><span>Nuestra</span> <span class="description-title">Esencia Institucional</span></div>
+        </div>
+
+        <div class="row align-items-xl-center gy-5">
+
+          <!-- Misión -->
+          <div class="col-xl-6">
+            <div class="icon-box text-center p-4" data-aos="fade-up" data-aos-delay="200">
+              <i class="bi bi-bullseye" style="font-size: 60px; color:#0d6efd;"></i>
+              <h3 class="mt-3">Misión</h3>
+              <p>
+                Institución enfocada en brindar apoyo, representación y respaldo jurídico a nuestros miembros,
+                promoviendo el ejercicio ético, profesional y responsable de la abogacía en beneficio de la sociedad.
+                Impulsamos el desarrollo académico, institucional y gremial mediante servicios eficientes, capacitación
+                constante y acompañamiento especializado.
+              </p>
+            </div>
+          </div>
+
+          <!-- Visión -->
+          <div class="col-xl-6">
+            <div class="icon-box text-center p-4" data-aos="fade-up" data-aos-delay="300">
+              <i class="bi bi-eye" style="font-size: 60px; color:#0d6efd;"></i>
+              <h3 class="mt-3">Visión</h3>
+              <p>
+                Ser la institución jurídica líder de la provincia, reconocida por su excelencia profesional,
+                transparencia y
+                compromiso social. Aspiramos a fortalecer el gremio mediante innovación, integración y la defensa
+                permanente
+                de los derechos de nuestros miembros, contribuyendo al desarrollo legal y comunitario.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- Events Section -->
+    <section id="events" class="events section-bg py-5">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Eventos</h2>
+          <div><span>Últimos</span> <span class="description-title">Eventos registrados</span></div>
+
+        </div>
+
+        <div class="row">
+          {% for evento in eventos %}
+          <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:1 }}00">
+            <div class="event-item p-3 border rounded shadow-sm h-100">
+
+
+
+              <h3 class="mt-2">
+                <a href="#" class="stretched-link">{{ evento.nombre }}</a>
+              </h3>
+
+              <p>{{ evento.descripcion }}</p>
+
+              <span class="badge">
+                {{ evento.fecha }} — {{ evento.hora }}
+              </span>
+
+            </div>
+          </div>
+          {% endfor %}
+
+        </div>
+
+      </div>
+    </section>
+    <!-- /Events Section -->
+
+    <!-- Stats Section -->
+    <section id="stats" class="stats section light-background">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
+            <i class="bi bi-emoji-smile"></i>
+            <div class="stats-item">
+              <span data-purecounter-start="0" data-purecounter-end="100" data-purecounter-duration="1"
+                class="purecounter"></span>
+              <p>Clientes </p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
+            <i class="bi bi-journal-richtext"></i>
+            <div class="stats-item">
+              <span data-purecounter-start="0" data-purecounter-end="20" data-purecounter-duration="1"
+                class="purecounter"></span>
+              <p>Proyectos</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
+            <i class="bi bi-headset"></i>
+            <div class="stats-item">
+              <span data-purecounter-start="0" data-purecounter-end="100" data-purecounter-duration="1"
+                class="purecounter"></span>
+              <p>Hours Of Support</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
+            <i class="bi bi-people"></i>
+            <div class="stats-item">
+              <span data-purecounter-start="0" data-purecounter-end="11" data-purecounter-duration="1"
+                class="purecounter"></span>
+              <p>Trabajadores</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Stats Section -->
+
+    <!-- Details Section -->
+    <!-- Details Section -->
+    <section id="details" class="details section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Detalles</h2>
+        <div><span>Nuestros Servicios </span> <span class="description-title">Institucionales</span></div>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <!-- Respaldo -->
+        <div class="row gy-4 align-items-center features-item">
+          <div class="col-md-5 d-flex justify-content-center align-items-center" data-aos="zoom-out"
+            data-aos-delay="100">
+            <i class="bi bi-shield-check" style="font-size: 120px; color:#0d6efd;"></i>
+          </div>
+          <div class="col-md-7" data-aos="fade-up" data-aos-delay="100">
+            <h3>Respaldo </h3>
+            <p class="fst-italic">
+              El Colegio protege tus derechos como profesional del Derecho.
+            </p>
+            <ul>
+              <li><i class="bi bi-check"></i><span> Defensa de la profesión.</span></li>
+              <li><i class="bi bi-check"></i><span> Representación ante organismos nacionales.</span></li>
+              <li><i class="bi bi-check"></i><span> Tribunal de Honor.</span></li>
+            </ul>
+          </div>
+        </div><!-- Features Item -->
+
+        <!-- Crecimiento profesional -->
+        <div class="row gy-4 align-items-center features-item">
+          <div class="col-md-5 order-1 order-md-2 d-flex justify-content-center align-items-center" data-aos="zoom-out"
+            data-aos-delay="200">
+            <i class="bi bi-bar-chart-line" style="font-size: 120px; color:#0d6efd;"></i>
+          </div>
+          <div class="col-md-7 order-2 order-md-1" data-aos="fade-up" data-aos-delay="200">
+            <h3>Crecimiento profesional</h3>
+            <p class="fst-italic">
+              Programas para potenciar tus competencias jurídicas.
+            </p>
+            <ul>
+              <li><i class="bi bi-check"></i><span> Capacitaciones.</span></li>
+              <li><i class="bi bi-check"></i><span> Bibliografía y recursos legales.</span></li>
+              <li><i class="bi bi-check"></i><span> Charlas y conferencias con especialistas.</span></li>
+            </ul>
+          </div>
+        </div><!-- Features Item -->
+
+        <!-- Beneficios administrativos -->
+        <div class="row gy-4 align-items-center features-item">
+          <div class="col-md-5 d-flex justify-content-center align-items-center" data-aos="zoom-out">
+            <i class="bi bi-clipboard-check" style="font-size: 120px; color:#0d6efd;"></i>
+          </div>
+          <div class="col-md-7" data-aos="fade-up">
+            <h3>Beneficios administrativos</h3>
+            <p>Gestión simplificada para abogados afiliados.</p>
+            <ul>
+              <li><i class="bi bi-check"></i><span> Certificados.</span></li>
+              <li><i class="bi bi-check"></i><span> Trámites internos.</span></li>
+              <li><i class="bi bi-check"></i><span> Acceso a instalaciones.</span></li>
+            </ul>
+          </div>
+        </div><!-- Features Item -->
+
+        <!-- Oportunidades -->
+        <div class="row gy-4 align-items-center features-item">
+          <div class="col-md-5 order-1 order-md-2 d-flex justify-content-center align-items-center" data-aos="zoom-out">
+            <i class="bi bi-award" style="font-size: 120px; color:#0d6efd;"></i>
+          </div>
+          <div class="col-md-7 order-2 order-md-1" data-aos="fade-up">
+            <h3>Oportunidades y reconocimiento</h3>
+            <p class="fst-italic">
+              Participa activamente en la vida institucional.
+            </p>
+            <ul>
+              <li><i class="bi bi-check"></i><span> Cargos y comisiones.</span></li>
+              <li><i class="bi bi-check"></i><span> Eventos.</span></li>
+              <li><i class="bi bi-check"></i><span> Distinciones y premios.</span></li>
+            </ul>
+          </div>
+
+
+        </div><!-- Features Item -->
+
+
+        <!-- Beneficios administrativos -->
+        <div class="row gy-4 align-items-center features-item">
+          <div class="col-md-5 d-flex justify-content-center align-items-center" data-aos="zoom-out">
+            <i class="bi bi-clipboard-check" style="font-size: 120px; color:#0d6efd;"></i>
+          </div>
+          <div class="col-md-7" data-aos="fade-up">
+            <h3>Afiliados</h3>
+            <p>Afiliados al colegio de abogados.</p>
+            <ul>
+              <li><i class="bi bi-check"></i><span> Boveda Gratuita</span></li>
+              <li><i class="bi bi-check"></i><span> Descuentos especiales gracias a convenios
+                  interinstitucionales.</span></li>
+              <li><i class="bi bi-check"></i><span> Descuentos en uso de instalaciones complejo deportivo ubicado en la
+                  Via balosa</span></li>
+              <li><i class="bi bi-check"></i><span> Descuentos en uso de instalaciones sede social ubicada via Puerto
+                  bolivar</span></li>
+              <li><i class="bi bi-check"></i><span> Cursos y Talleres</span></li>
+              <li><i class="bi bi-check"></i><span> Defensa Gremial</span></li>
+            </ul>
+          </div>
+        </div><!-- Features Item -->
+      </div>
+
+    </section><!-- /Details Section -->
+
+
+    <!-- Testimonials Section -->
+
+
+    <section id="testimonials" class="testimonials section">
+
+      <img src="{% static 'assets/img/testimonios/fondotesti.jpg' %}" class="testimonials-bg" alt="Fondo testimonios">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="section-title">
+          <h2>Testimonios</h2>
+          <div><span>Testimonios</span> <span class="description-title">de Socios</span></div>
+
+        </div>
+        <div class="swiper init-swiper">
+          <script type="application/json" class="swiper-config">
+        {
+          "loop": true,
+          "speed": 600,
+          "autoplay": { "delay": 5000 },
+          "slidesPerView": "auto",
+          "pagination": {
+            "el": ".swiper-pagination",
+            "type": "bullets",
+            "clickable": true
+          }
+        }
+      </script>
+
+          <div class="swiper-wrapper">
+
+            <!-- Testimonio 1 -->
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="{% static 'assets/img/testimonios/.jpg' %}" class="testimonial-img" alt="">
+                <h3>Dr. Juan Pérez</h3>
+                <h4>Abogado Penalista</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>El Colegio me ha brindado acompañamiento legal y capacitación constante.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div>
+
+            <!-- Testimonio 2 -->
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="{% static 'assets/img/testimonials/socio2.jpg' %}" class="testimonial-img" alt="">
+                <h3>Abg. María Cedeño</h3>
+                <h4>Abogada Corporativa</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>Los eventos del Colegio me mantienen actualizada en mi profesión.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div>
+
+            <!-- Testimonio 3 -->
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="{% static 'assets/img/testimonials/socio3.jpg' %}" class="testimonial-img" alt="">
+                <h3>Dr. Carlos Viteri</h3>
+                <h4>Asesor Jurídico Público</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>Ser socio me abrió oportunidades profesionales importantes.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div>
+
+            <!-- Testimonio 4 -->
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="{% static 'assets/img/testimonials/socio4.jpg' %}" class="testimonial-img" alt="">
+                <h3>Abg. Daniela Torres</h3>
+                <h4>Abogada Laboralista</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>El apoyo institucional ha fortalecido mi credibilidad profesional.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div>
+
+            <!-- Testimonio 5 -->
+            <div class="swiper-slide">
+              <div class="testimonial-item">
+                <img src="{% static 'assets/img/testimonials/socio5.jpg' %}" class="testimonial-img" alt="">
+                <h3>Dr. Andrés Molina</h3>
+                <h4>Especialista en Derecho Civil</h4>
+                <div class="stars">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
+                    class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p>
+                  <i class="bi bi-quote quote-icon-left"></i>
+                  <span>Ofrecen recursos que ayudan a mejorar mi defensa técnica.</span>
+                  <i class="bi bi-quote quote-icon-right"></i>
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- Team Section -->
+    <section id="team" class="team section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Directivos</h2>
+        <div><span>Nuestro</span> <span class="description-title">Equipo</span></div>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+
+        <div class="row gy-5 justify-content-center">
+          <!--
+          <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="member">
+              <div class="pic"><img src="{% static 'assets/img/gallery/presi.jpg' %}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Dr. Arturo Galarza</h4>
+                <span>Presidente del Despacho de Abogados</span>
+                <br>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        -->
+          <!--PRESIDENTE-->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="member">
+              <div class="pic"><img src="{% static 'assets/img/gallery/presi.jpg' %}" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Dr. Arturo Galarza</h4>
+                <span>Presidente del Despacho de Abogados</span>
+                <br>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--VICEPRESIDENTA-->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="member">
+              <div class="pic"><img src="assets/img/team/team-3.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Abg. Yudy Blacio </h4>
+                <span>Vicepresidenta</span>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--SECRETARIO-->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="member">
+              <div class="pic"><img src="assets/img/team/team-3.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Abg. Jonny Zavala </h4>
+                <span>Secretario</span>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--TESORERO-->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="member">
+              <div class="pic"><img src="assets/img/team/team-3.jpg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Abg. Diana Medina </h4>
+                <span>Tesorera</span>
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter-x"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="col-12 text-center mt-4">
+          <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#masDirectivos">
+            Ver más directivos
+          </button>
+
+        </div>
+
+        <!-- DIRECTIVOS OCULTOS -->
+        <div id="masDirectivos" class="collapse mt-4" data-aos="none">
+
+
+          <div class="row gy-4">
+
+            <!-- DIRECTIVO 1 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+              <div class="member">
+                <div class="pic"><img src="assets/img/team/directivo-5.jpg" class="img-fluid" alt=""></div>
+                <div class="member-info">
+                  <h4>Abg. Carlos Palacios</h4>
+                  <span>Vocal Principal</span>
+                  <div class="social">
+                    <a href=""><i class="bi bi-twitter-x"></i></a>
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- DIRECTIVO 2 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
+              <div class="member">
+                <div class="pic"><img src="assets/img/team/directivo-6.jpg" class="img-fluid" alt=""></div>
+                <div class="member-info">
+                  <h4>Abg. Karina Viteri</h4>
+                  <span>Comisión Jurídica</span>
+                  <div class="social">
+                    <a href=""><i class="bi bi-twitter-x"></i></a>
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- DIRECTIVO 3 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+              <div class="member">
+                <div class="pic"><img src="assets/img/team/directivo-7.jpg" class="img-fluid" alt=""></div>
+                <div class="member-info">
+                  <h4>Abg. Jorge Sánchez</h4>
+                  <span>Comité de Ética</span>
+                  <div class="social">
+                    <a href=""><i class="bi bi-twitter-x"></i></a>
+                    <a href=""><i class="bi bi-facebook"></i></a>
+                    <a href=""><i class="bi bi-instagram"></i></a>
+                    <a href=""><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+    </section><!-- /Team Section -->
+
+    <!-- Noticias Section -->
+
+    <section id="noticias" class="services section-bg py-5">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Noticias</h2>
+          <div><span>Ultimas</span> <span class="description-title">publicaciones</span></div>
+        </div>
+
+        <div class="row">
+
+          {% for noticia in noticias %}
+          <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:1 }}00">
+            <div class="card shadow-sm h-100">
+
+              <!-- Imagen -->
+              {% if noticia.imagen %}
+              <img src="{{ noticia.imagen.url }}" class="img-fluid" alt="Imagen de noticia">
+              {% endif %}
+
+
+              <!-- Contenido -->
+              <div class="card-body">
+
+                <!-- Categoría y fecha -->
+                <div class="d-flex justify-content-between text-muted small mb-2">
+                  <span><i class="bi bi-tag"></i> {{ noticia.categoria }}</span>
+                  <span><i class="bi bi-calendar"></i> {{ noticia.fecha|date:"d M Y" }}</span>
+                </div>
+
+                <!-- Título -->
+                <h5 class="card-title fw-bold">{{ noticia.titulo }}</h5>
+
+                <!-- Botón -->
+                <p>{{ noticia.extracto }}</p>
+                <a href="{{ noticia.url }}" target="_blank" class="btn btn-primary w-100">
+                  Leer más <i class="bi bi-arrow-right-short"></i>
+                </a>
+
+
+              </div>
+
+            </div>
+          </div>
+          {% empty %}
+          <p class="text-center">No hay noticias disponibles.</p>
+          {% endfor %}
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- /Noticias Section -->
+
+    <!-- Faq Section -->
+    <section id="faq" class="faq section light-background">
+
+      <div class="container-fluid">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-7 d-flex flex-column justify-content-center order-2 order-lg-1">
+
+            <div class="content px-xl-5" data-aos="fade-up" data-aos-delay="100">
+              <h3><span>Preguntas frecuentes </span></h3>
+              <p>
+                Aquí tienes algunas preguntas frecuentes para ayudarte a comprender mejor nuestros servicios y cómo
+                podemos brindarte.
+              </p>
+            </div>
+
+            <div class="faq-container px-xl-5" data-aos="fade-up" data-aos-delay="200">
+
+              <div class="faq-item faq-active">
+                <i class="faq-icon bi bi-question-circle"></i>
+                <h3>Cuáles son los métodos de pago disponibles</h3>
+                <div class="faq-content">
+                  <p>Aceptamos tarjetas de crédito, transferencias bancarias y pagos en efectivo.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <i class="faq-icon bi bi-question-circle"></i>
+                <h3>¿Cómo puedo solicitar uno de sus servicios?</h3>
+                <div class="faq-content">
+                  <p>Puedes contactarnos a través del formulario de contacto o acercarte directamente a nuestras
+                    oficinas.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <i class="faq-icon bi bi-question-circle"></i>
+                <h3>Qué requisitos necesito para acceder a un servicio?</h3>
+                <div class="faq-content">
+                  <p>Necesita presentar una identificación válida y cumplir con los requisitos específicos del servicio
+                    solicitado.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+            </div>
+
+          </div>
+
+          <div class="col-lg-5 order-1 order-lg-2">
+            <img src="assets/img/faq.jpg" class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="100">
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Faq Section -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Contact</h2>
+        <div><span>Check Our</span> <span class="description-title">Contact</span></div>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4">
+            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
+              <i class="bi bi-geo-alt flex-shrink-0"></i>
+              <div>
+                <h3>Address</h3>
+                <p>Av. Sucre y Santa Rosa</p>
+              </div>
+            </div>
+
+            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
+              <i class="bi bi-envelope flex-shrink-0"></i>
+              <div>
+                <h3>Email Us</h3>
+                <p>colegiodeabo@gmail.com</p>
+              </div>
+            </div><!-- End Info Item -->
+
+          </div>
+
+          <!-- INICIO CONTACTO -->
+          <div class="col-lg-8">
+
+            <form method="POST" action="" class="php-email-form">
+              {% csrf_token %}
+
+              {% if success %}
+              <div class="alert alert-success mt-3">
+                ¡Tu mensaje fue enviado correctamente!
+              </div>
+              {% endif %}
+
+              <div class="row gy-4">
+
+                <!-- Nombre -->
+                <div class="col-md-6">
+                  <input type="text" name="name" class="form-control" placeholder="Tu nombre" required>
+                </div>
+
+                <!-- Email -->
+                <div class="col-md-6">
+                  <input type="email" name="email" class="form-control" placeholder="Tu correo electrónico" required>
+                </div>
+
+                <!-- Asunto -->
+                <div class="col-md-12">
+                  <input type="text" name="subject" class="form-control" placeholder="Asunto" required>
+                </div>
+
+                <!-- Mensaje -->
+                <div class="col-md-12">
+                  <textarea name="message" class="form-control" rows="6" placeholder="Mensaje" required></textarea>
+                </div>
+
+                <!-- Botón -->
+                <div class="col-md-12 text-center">
+                  <button type="submit" class="btn btn-primary px-4 py-2">
+                    Enviar mensaje
+                  </button>
+                </div>
+
+              </div>
+            </form>
+
+          </div>
+          <!-- FIN CONTACTO -->
+        </div>
+
+      </div>
+
+    </section><!-- /Contact Section -->
+
+    <!-- Base Legal Section -->
+    <section id="base-legal" class="base-legal section light-background">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Base Legal</h2>
+        <div><span>Fundamento</span> <span class="description-title">Legal Institucional</span></div>
+      </div>
+      <!-- End Section Title -->
+
+      <div class="container">
+        <div class="row justify-content-center"> <!-- ESTA LÍNEA CENTRA LOS ITEMS -->
+
+          <div class="col-lg-6">
+            <div class="legal-item p-4 border rounded mb-5" data-aos="fade-up" data-aos-delay="100">
+              <h4><i class="bi bi-bank me-2"></i> Estatuto del Colegio de Abogados de el Oro</h4>
+              <p>
+                Documento que establece el marco normativo institucional, estructura organizacional, derechos y deberes
+                de sus miembros, y principios que guían nuestro accionar profesional.
+              </p>
+
+              <a href="{% static 'pdf/Estatutodelcolegio.pdf' %}" class="btn btn-primary mt-3" download>
+                Descargar PDF
+              </a>
+
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+    </section>
+    <!-- /Base Legal Section -->
+
+
+    <!-- Enlaces de Interés Section -->
+    <section class="enlaces-interes" style="background-color: #ffffff !important;">
+      <div class="container">
+        <h3 class="titulo-enlaces">Enlaces de Interés</h3>
+
+        <div class="logos-enlaces"
+          style="display: flex; gap: 20px; justify-content: center; align-items: center; flex-wrap: wrap;">
+
+          <a href="https://www.funcionjudicial.gob.ec/" target="_blank">
+            <img src="{% static 'assets/img/enlaces/judicatura.png' %}" alt="Consejo de la Judicatura"
+              style="height: 120px;">
+          </a>
+          <br>
+          <a href="https://www.fiscalia.gob.ec/" target="_blank">
+            <img src="{% static 'assets/img/enlaces/fiscalia.png' %}" alt="Fiscalía General del Estado"
+              style="height: 120px;">
+          </a>
+          <br>
+          <a href="https://www.registroficial.gob.ec/" target="_blank">
+            <img src="{% static 'assets/img/enlaces/registro.png' %}" alt="Registro Oficial del Ecuador"
+              style="height: 120px;">
+          </a>
+          <br>
+          <a href="https://www.corteconstitucional.gob.ec/" target="_blank">
+            <img src="{% static 'assets/img/enlaces/corte.png' %}" alt="Corte Constitucional del Ecuador"
+              style="height: 120px;">
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+
+  </main>
+  <br>
+  <footer id="footer" class="footer dark-background bg-verde-oro">
+
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="{% url 'pagina_informatica' %}" class="logo d-flex align-items-center">
+            <span class="sitename">Colegio
+              de Abogados <br> de el Oro
+            </span>
+          </a>
+          <div class="footer-contact pt-3">
+            <p>Av. Sucre
+              y Santa Rosa</p>
+            <!-- <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p> -->
+            <p><strong>Email:</strong> <span>colegiodeabo@gmail.com</span></p>
+          </div>
+          <div class="social-links d-flex mt-4">
+            <a href=""><i class="bi bi-twitter-x"></i></a>
+            <a href=""><i class="bi bi-facebook"></i></a>
+            <a href=""><i class="bi bi-instagram"></i></a>
+            <a href=""><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Bootslander</strong> <span>All Rights Reserved</span>
+      </p>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <!-- <div id="preloader"></div> -->
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+
+  <!-- Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+
+
+</body>
+
+
+</html>

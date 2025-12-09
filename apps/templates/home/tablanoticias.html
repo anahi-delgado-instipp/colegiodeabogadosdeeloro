@@ -1,0 +1,296 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block title %}Noticias{% endblock title %}
+
+{% block content %}
+<div class="header bg-gradient-green pb-6">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row align-items-center py-4">
+        <div class="col-lg-6 col-7">
+          <h6 class="h2 text-white d-inline-block mb-0">Noticias</h6>
+          <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
+            <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
+              <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+              <li class="breadcrumb-item"><a href="#">Contenido</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Noticias</li>
+            </ol>
+          </nav>
+        </div>
+
+        <div class="col-lg-6 col-5 text-right">
+          <a href="#" class="btn btn-sm btn-neutral" data-toggle="modal" data-target="#modalNoticia">Nueva noticia</a>
+          <a href="#" class="btn btn-sm btn-neutral">Filtros</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt--6">
+  <div class="row">
+    <div class="col">
+      <div class="card">
+
+        <div class="card-header d-flex justify-content-between align-items-center">
+          <h3 class="mb-0">Listado de noticias</h3>
+          <small class="text-muted">{{ noticias.count }} noticias</small>
+        </div>
+
+        <!-- =======================
+             MODAL REGISTRAR NOTICIA
+        ========================== -->
+        <div class="modal fade" id="modalNoticia" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header bg-gradient-green text-white">
+                <h5 class="modal-title">Registrar Noticia</h5>
+                <button type="button" class="close text-white" data-dismiss="modal">
+                  <span>&times;</span>
+                </button>
+              </div>
+
+              <div class="modal-body">
+                <form action="{% url 'guardar_noticia' %}" method="POST" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  <div class="form-row">
+                    <div class="form-group col-md-8">
+                      <label>Título</label>
+                      <input type="text" name="titulo" class="form-control" required>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label>Fecha</label>
+                      <input type="date" name="fecha" class="form-control" required>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label>Categoría</label>
+                      <input type="text" name="categoria" class="form-control" placeholder="Ej: local, nacional...">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label>Extracto</label>
+                      <input type="text" name="extracto" class="form-control" maxlength="200">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Imagen (opcional)</label>
+                    <input type="file" name="imagen" accept="image/*" class="form-control-file"
+                      onchange="previewImage(event, 'previewNueva')">
+                    <small class="form-text text-muted">Tamaño recomendado: 1200×630px</small>
+                    <img id="previewNueva" class="img-fluid mt-2" style="max-height:150px; display:none;">
+                  </div>
+
+                  <div class="form-group">
+                    <label>URL externa (opcional)</label>
+                    <input type="url" name="url" class="form-control">
+                  </div>
+
+                  <div class="form-group">
+                    <label>Contenido</label>
+                    <textarea name="contenido" class="form-control" rows="6" required></textarea>
+                  </div>
+
+                  <button type="submit" class="btn btn-success btn-block">Guardar noticia</button>
+                </form>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- TABLA -->
+        <div class="table-responsive mt-4">
+          <table class="table align-items-center table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th>Título</th>
+                <th>Fecha</th>
+                <th>Categoría</th>
+                <th>Extracto</th>
+                <th>Imagen</th>
+                <th>Url</th>
+                <th class="text-center">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for n in noticias %}
+              <tr>
+                <td>{{ n.titulo }}</td>
+                <td>{{ n.fecha|date:"Y-m-d" }}</td>
+                <td>{{ n.categoria }}</td>
+                <td style="max-width:300px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                  {{ n.extracto }}
+                </td>
+
+                <td>
+                  {% if n.imagen %}
+                  <img src="{{ n.imagen.url }}" alt="{{ n.titulo }}" class="img-thumbnail" style="max-height:60px;">
+                  {% else %}
+                  <span class="text-muted small">Sin imagen</span>
+                  {% endif %}
+                </td>
+
+
+                <td>
+                  {% if n.url %}
+                  <a href="{{ n.url }}" target="_blank">{{ n.url }}</a>
+                  {% else %}
+                  <span class="text-muted small">Sin URL</span>
+                  {% endif %}
+                </td>
+
+                <td class="text-center">
+                  <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalEditar{{ n.id }}"
+                    title="Editar">
+                    <i class="fas fa-edit"></i>
+                  </button>
+
+                  <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalEliminar{{ n.id }}"
+                    title="Eliminar">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </td>
+              </tr>
+
+              {% empty %}
+              <tr>
+                <td colspan="7" class="text-center text-muted">No hay noticias registradas.</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+        <!-- ===================
+             MODALES EDITAR
+        ======================= -->
+        {% for n in noticias %}
+        <div class="modal fade" id="modalEditar{{ n.id }}" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+
+              <div class="modal-header bg-info text-white">
+                <h5 class="modal-title">Editar Noticia</h5>
+                <button type="button" class="close text-white" data-dismiss="modal"><span>&times;</span></button>
+              </div>
+
+              <div class="modal-body">
+                <form action="{% url 'editar_noticia' n.id %}" method="POST" enctype="multipart/form-data">
+                  {% csrf_token %}
+
+                  <div class="form-row">
+                    <div class="form-group col-md-8">
+                      <label>Título</label>
+                      <input type="text" name="titulo" class="form-control" value="{{ n.titulo }}" required>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label>Fecha</label>
+                      <input type="date" name="fecha" class="form-control" value="{{ n.fecha|date:'Y-m-d' }}" required>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label>Categoría</label>
+                      <input type="text" name="categoria" class="form-control" value="{{ n.categoria }}">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                      <label>Extracto</label>
+                      <input type="text" name="extracto" class="form-control" value="{{ n.extracto }}">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Imagen (opcional)</label>
+                    <input type="file" name="imagen" accept="image/*" class="form-control-file"
+                      onchange="previewImage(event, 'preview{{ n.id }}')">
+
+                    {% if n.imagen %}
+                    <img id="preview{{ n.id }}" src="{{ n.imagen.url }}" class="img-fluid mt-2"
+                      style="max-height:150px;">
+                    {% else %}
+                    <img id="preview{{ n.id }}" class="img-fluid mt-2" style="max-height:150px; display:none;">
+                    {% endif %}
+                  </div>
+
+                  <div class="form-group">
+                    <label>URL externa</label>
+                    <input type="url" name="url" class="form-control" value="{{ n.url }}">
+                  </div>
+
+                  <div class="form-group">
+                    <label>Contenido</label>
+                    <textarea name="contenido" class="form-control" rows="6" required>{{ n.contenido }}</textarea>
+                  </div>
+
+                  <button type="submit" class="btn btn-info btn-block">Actualizar</button>
+                </form>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+        <!-- ===================
+             MODALES ELIMINAR
+        ======================= -->
+        {% for n in noticias %}
+        <div class="modal fade" id="modalEliminar{{ n.id }}" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+              <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title">Confirmar eliminación</h5>
+                <button type="button" class="close text-white" data-dismiss="modal"><span>&times;</span></button>
+              </div>
+
+              <div class="modal-body text-center">
+                <p>¿Seguro que deseas eliminar la noticia <strong>"{{ n.titulo }}"</strong>?</p>
+              </div>
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <a href="{% url 'eliminar_noticia' n.id %}" class="btn btn-danger">Eliminar</a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+      </div>
+    </div>
+  </div>
+</div>
+
+{% include "includes/footer.html" %}
+
+{% endblock content %}
+
+{% block javascripts %}
+<script>
+  function previewImage(event, previewId) {
+    const input = event.target;
+    const preview = document.getElementById(previewId);
+
+    if (!input.files || !input.files[0]) {
+      preview.style.display = 'none';
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      preview.src = e.target.result;
+      preview.style.display = 'block';
+    }
+
+    reader.readAsDataURL(input.files[0]);
+  }
+</script>
+{% endblock javascripts %}

@@ -1,0 +1,179 @@
+/* Colores bandera El Oro */
+.bg-oro {
+<<<<<<< Updated upstream
+    background-color:#57c289 30% !important;
+=======
+  background-color: #57c289 30% !important;
+>>>>>>> Stashed changes
+}
+
+.bg-verde-oro {
+  background: linear-gradient(90deg,
+      #145633 0%,
+      #23784b 30%,
+      /* antes estaba cerca del 33% o 35% */
+      #b9ab09 30%,
+      #eadd47 70%,
+      /* un centro un poco más ancho */
+      #145633 70%,
+      #145633 100%);
+}
+
+
+.text-oro {
+  color: #FFD700 !important;
+}
+
+.text-verde {
+  font-weight: bold;
+  color: #005f2c !important;
+}
+
+.enlaces-interes {
+  background-color: #ffffff !important;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.titulo-enlaces {
+  font-size: 24px;
+  margin-bottom: 25px;
+  font-weight: bold;
+  color: #fff;
+  /* Color blanco */
+}
+
+
+.logos-enlaces {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+
+
+.logos-enlaces img {
+  width: 160px;   /* <-- Más grande */
+  height: auto;
+  object-fit: contain;
+  transition: 0.3s ease;
+}
+
+
+.logos-enlaces img:hover {
+  transform: scale(1.1);
+}
+
+.base-legal {
+  display: flex;
+  justify-content: center;
+  /* Centra horizontalmente */
+  align-items: center;
+  /* Centra verticalmente (opcional) */
+  flex-wrap: wrap;
+  /* Permite varias filas */
+  gap: 20px;
+  /* Espaciado entre los ítems */
+}
+
+.base-legal .legal-item {
+  background: #ffffff;
+  transition: 0.3s;
+}
+
+.base-legal .legal-item:hover {
+  background: #f2f6f9;
+  transform: translateY(-5px);
+}
+
+.bg-verde-pastel{
+  background-color: #a3ecb4 !important;
+}
+.bg-verde-claro {
+    background-color: #6EE7B7 !important; /* verde claro */
+    color: #0f172a !important; /* texto oscuro para buen contraste */
+}
+
+.testimonials {
+  position: relative;
+  padding: 80px 0;
+  overflow: hidden; /* Importante */
+}
+
+.testimonials-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.35; /* Puedes aumentar a 0.5 si quieres */
+}
+
+/* Texto del menú lateral en negro */
+.sidenav .nav-link .nav-link-text {
+    color: #000 !important;
+}
+
+/* Íconos en negro */
+.sidenav .nav-link i {
+    color: #000 !important;
+}
+
+/* Estado hover */
+.sidenav .nav-link:hover .nav-link-text,
+.sidenav .nav-link:hover i {
+    color: #000 !important;
+}
+
+/* Estado activo */
+.sidenav .nav-link.active .nav-link-text,
+.sidenav .nav-link.active i {
+    color: #000 !important;
+    font-weight: 600;
+}
+
+/* Fondo blanco */
+#sidenav-main {
+  background-color: #ffffff !important;
+}
+
+/* Texto negro */
+#sidenav-main .nav-link,
+#sidenav-main .nav-link-text,
+#sidenav-main i {
+  color: #000 !important;
+}
+
+/* Hover y activo negro */
+#sidenav-main .nav-link:hover,
+#sidenav-main .nav-link.active {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+/* Hover con sombra */
+.sidenav .nav-link.sidenav-link {
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: all 0.25s ease-in-out;
+}
+
+.sidenav .nav-link.sidenav-link:hover {
+    background: #f4f4f4;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    transform: translateX(3px);
+}
+
+/* Elemento activo */
+.sidenav .nav-link.active {
+    background: #e6e6e6 !important;
+    border-left: 4px solid #000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    font-weight: bold;
+    transform: translateX(4px);
+}
+
+
+/* Estilos adicionales */
