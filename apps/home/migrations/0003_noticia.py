@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('titulo', models.CharField(max_length=255)),
-                ('fecha', models.DateField()),
+                ('fecha_publicacion', models.DateField()),
                 ('autor', models.CharField(blank=True, max_length=100, null=True)),
                 ('categoria', models.CharField(blank=True, max_length=50, null=True)),
                 ('extracto', models.CharField(blank=True, max_length=200, null=True)),

@@ -1,68 +1,82 @@
 # -*- encoding: utf-8 -*-
-"""
-Copyright (c) 2019 - present AppSeed.us
-"""
-
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from .forms import LoginForm, SignUpForm
-from apps.home.models import Perfil   
+from apps.home.models import Perfil
+from django.contrib.auth.models import User
+from django.contrib import messages
 
 
 def login_view(request):
     form = LoginForm(request.POST or None)
-
     msg = None
 
     if request.method == "POST":
-
         if form.is_valid():
             username = form.cleaned_data.get("username")
             password = form.cleaned_data.get("password")
-            user = authenticate(username=username, password=password)
+            user = authenticate(request, username=username, password=password)
 
             if user is not None:
                 login(request, user)
+
+                # 👉 TODOS VAN AL MISMO DASHBOARD
                 return redirect("dashboard")
+
             else:
-                msg = 'Credenciales incorrectas'
+                msg = "Credenciales incorrectas"
         else:
-            msg = 'Error validando el formulario'
+            msg = "Formulario inválido"
 
-    return render(request, "accounts/login.html", {"form": form, "msg": msg})
+    return render(request, "accounts/login.html", {
+        "form": form,
+        "msg": msg
+    })
 
+from django.shortcuts import render, redirect
+from .forms import SignUpForm
+from apps.home.models import Perfil
 
 def register_user(request):
-    msg = None
-    success = False
-
     if request.method == "POST":
-        form = SignUpForm(request.POST)
-        if form.is_valid():
-            # Crear usuario
-            user = form.save()
+        first_name = request.POST.get("first_name")
+        last_name = request.POST.get("last_name")
+        username = request.POST.get("username")
+        email = request.POST.get("email")
+        password1 = request.POST.get("password1")
+        password2 = request.POST.get("password2")
 
-            # Obtener rol
-            rol = form.cleaned_data.get("rol")
+        # Validaciones
+        if password1 != password2:
+            messages.error(request, "Las contraseñas no coinciden")
+            return redirect("register")
 
-            # Guardar en Perfil
-            Perfil.objects.create(user=user, rol=rol)
+        if User.objects.filter(username=username).exists():
+            messages.error(request, "El usuario ya existe")
+            return redirect("register")
 
-            # Autenticación automática opcional
-            username = form.cleaned_data.get("username")
-            raw_password = form.cleaned_data.get("password1")
-            user = authenticate(username=username, password=raw_password)
+        # Crear usuario
+        user = User.objects.create_user(
+            username=username,
+            email=email,
+            password=password1
+        )
+        user.first_name = first_name
+        user.last_name = last_name
+        user.save()
 
-            msg = 'Usuario creado correctamente. Ahora puede <a href="/login">iniciar sesión</a>.'
-            success = True
+        # Crear perfil
+        Perfil.objects.create(
+            user=user,
+            rol="usuario"  # rol por defecto
+        )
 
-        else:
-            msg = 'El formulario no es válido'
-    else:
-        form = SignUpForm()
+        messages.success(request, "Cuenta creada correctamente")
+        return redirect("login")
 
-    return render(request, "accounts/register.html", {"form": form, "msg": msg, "success": success})
+    return render(request, "home/register.html")
 
 
 def logout_view(request):
-    return render(request, "accounts/logout.html")
+    logout(request)
+    return redirect("login")

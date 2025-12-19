@@ -1,24 +1,16 @@
-/* Colores bandera El Oro */
-.bg-oro {
-<<<<<<< Updated upstream
-    background-color:#57c289 30% !important;
-=======
-  background-color: #57c289 30% !important;
->>>>>>> Stashed changes
-}
-
+/* ===============================
+   FONDO VERDE – ORO
+================================ */
 .bg-verde-oro {
   background: linear-gradient(90deg,
-      #145633 0%,
-      #23784b 30%,
-      /* antes estaba cerca del 33% o 35% */
-      #b9ab09 30%,
-      #eadd47 70%,
-      /* un centro un poco más ancho */
-      #145633 70%,
-      #145633 100%);
+    #145633 0%,
+    #23784b 30%,
+    #b9ab09 30%,
+    #eadd47 70%,
+    #145633 70%,
+    #145633 100%
+  );
 }
-
 
 .text-oro {
   color: #FFD700 !important;
@@ -29,6 +21,9 @@
   color: #005f2c !important;
 }
 
+/* ===============================
+   ENLACES DE INTERÉS
+================================ */
 .enlaces-interes {
   background-color: #ffffff !important;
   padding: 40px 0;
@@ -39,10 +34,8 @@
   font-size: 24px;
   margin-bottom: 25px;
   font-weight: bold;
-  color: #fff;
-  /* Color blanco */
+  color: #ffffff;
 }
-
 
 .logos-enlaces {
   display: flex !important;
@@ -51,29 +44,26 @@
   text-align: center !important;
 }
 
-
 .logos-enlaces img {
-  width: 160px;   /* <-- Más grande */
+  width: 160px;
   height: auto;
   object-fit: contain;
   transition: 0.3s ease;
 }
 
-
 .logos-enlaces img:hover {
   transform: scale(1.1);
 }
 
+/* ===============================
+   BASE LEGAL
+================================ */
 .base-legal {
   display: flex;
   justify-content: center;
-  /* Centra horizontalmente */
   align-items: center;
-  /* Centra verticalmente (opcional) */
   flex-wrap: wrap;
-  /* Permite varias filas */
   gap: 20px;
-  /* Espaciado entre los ítems */
 }
 
 .base-legal .legal-item {
@@ -86,94 +76,222 @@
   transform: translateY(-5px);
 }
 
-.bg-verde-pastel{
+/* ===============================
+   COLORES DE FONDO
+================================ */
+.bg-verde-pastel {
   background-color: #a3ecb4 !important;
 }
+
 .bg-verde-claro {
-    background-color: #6EE7B7 !important; /* verde claro */
-    color: #0f172a !important; /* texto oscuro para buen contraste */
+  background-color: #6EE7B7 !important;
+  color: #0f172a !important;
 }
 
+/* ===============================
+   TESTIMONIOS
+================================ */
 .testimonials {
   position: relative;
   padding: 80px 0;
-  overflow: hidden; /* Importante */
+  overflow: hidden;
 }
 
 .testimonials-bg {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   z-index: -1;
-  opacity: 0.35; /* Puedes aumentar a 0.5 si quieres */
+  opacity: 0.35;
 }
 
-/* Texto del menú lateral en negro */
-.sidenav .nav-link .nav-link-text {
-    color: #000 !important;
-}
-
-/* Íconos en negro */
-.sidenav .nav-link i {
-    color: #000 !important;
-}
-
-/* Estado hover */
-.sidenav .nav-link:hover .nav-link-text,
-.sidenav .nav-link:hover i {
-    color: #000 !important;
-}
-
-/* Estado activo */
-.sidenav .nav-link.active .nav-link-text,
-.sidenav .nav-link.active i {
-    color: #000 !important;
-    font-weight: 600;
-}
-
-/* Fondo blanco */
+/* ===============================
+   SIDENAV
+================================ */
 #sidenav-main {
   background-color: #ffffff !important;
 }
 
-/* Texto negro */
-#sidenav-main .nav-link,
-#sidenav-main .nav-link-text,
-#sidenav-main i {
+.sidenav .nav-link,
+.sidenav .nav-link-text,
+.sidenav i {
   color: #000 !important;
 }
 
-/* Hover y activo negro */
-#sidenav-main .nav-link:hover,
-#sidenav-main .nav-link.active {
+.sidenav .nav-link:hover,
+.sidenav .nav-link.active {
   background: rgba(0, 0, 0, 0.05);
-  border-radius: 4px;
+  border-radius: 8px;
 }
 
-/* Hover con sombra */
 .sidenav .nav-link.sidenav-link {
-    padding: 10px 15px;
-    border-radius: 8px;
-    transition: all 0.25s ease-in-out;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: all 0.25s ease-in-out;
 }
 
 .sidenav .nav-link.sidenav-link:hover {
-    background: #f4f4f4;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-    transform: translateX(3px);
+  background: #f4f4f4;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  transform: translateX(3px);
 }
 
-/* Elemento activo */
 .sidenav .nav-link.active {
-    background: #e6e6e6 !important;
-    border-left: 4px solid #000;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
-    font-weight: bold;
-    transform: translateX(4px);
+  background: #e6e6e6 !important;
+  border-left: 4px solid #000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  font-weight: bold;
+  transform: translateX(4px);
+}
+
+/* ===============================
+   DIRECTIVOS
+================================ */
+.team .member {
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.team .member .pic img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+}
+
+.team .member-info {
+  padding: 22px 18px 26px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.team .member-info h4 {
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #1c1c1c;
+}
+
+.team .member-info .cargo {
+  font-size: 14px;
+  color: #6c757d;
+  line-height: 1.4;
+  margin-bottom: 18px;
+}
+
+.team .member-info .social {
+  display: flex;
+  gap: 14px;
+  margin-top: 35px;
+}
+
+.team .member-info .social a {
+  width: 36px;
+  height: 36px;
+  background: #f1f3f5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0d6efd;
+  transition: all 0.3s ease;
+}
+
+.team .member-info .social a:hover {
+  background: #0d6efd;
+  color: #ffffff;
+}
+
+/* ===============================
+   SUBTÍTULO DIRECTIVOS
+================================ */
+.team-subtitle {
+  font-size: 30px;
+  font-weight: 600;
+  color: #1c1c1c;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  #about h3 {
+    font-size: 18px;
+  }
+
+  #about h2 {
+    font-size: 24px;
+  }
+
+  #about p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}
+
+/* ===============================
+   BOTONES PERSONALIZADOS 
+================================ */
+
+.header nav,
+.header .container,
+.header .container-fluid {
+  height: 100%;
+  align-items: center;
 }
 
 
-/* Estilos adicionales */
+
+/* ===============================
+   REDUCIR ALTURA DEL MENÚ
+================================ */
+
+/* Altura real del header */
+header,
+.header,
+.bg-verde-oro {
+  height: 60px !important;
+  min-height: 60px !important;
+  padding: 0 !important;
+}
+
+/* Evitar que el contenido lo estire */
+.header nav {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+/* Contenedores internos */
+.header .container,
+.header .container-fluid {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+/* Logo MÁS pequeño */
+.nav-logo img {
+  height: 32px !important;
+  width: auto;
+}
+
+/* Links más compactos */
+.nav-links li a {
+  font-size: 13px;
+  padding: 4px 6px;
+  line-height: 1;
+}
+
+/* Espacio entre opciones */
+.nav-links {
+  gap: 12px !important;
+}

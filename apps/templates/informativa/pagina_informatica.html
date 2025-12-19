@@ -18,7 +18,7 @@
 
   <!-- Main CSS File -->
   <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
-  <link rel="stylesheet" href="{% static 'assets/css/argon.css' %}">
+  <link href="{% static 'assets/css/argon.css' %}" rel="stylesheet">
 
   <!-- CSS Personalizado -->
   <link href="{% static 'assets/css/personalizado.css' %}" rel="stylesheet">
@@ -94,29 +94,26 @@
     </section>
     <!-- /Hero Section -->
 
-    <!-- About Section -->
     <section id="about" class="about section">
-
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row align-items-xl-center gy-5">
 
           <div class="col-xl-5 content">
             <h3>Sobre nosotros</h3>
             <h2>Estudio Jurídico</h2>
-            <p> Somos un estudio jurídico en la provincia de El Oro, dedicado a brindar asesoría y representación legal
+            <p>Somos un estudio jurídico en la provincia de El Oro, dedicado a brindar asesoría y representación legal
               con ética, responsabilidad y transparencia. Contamos con un equipo capacitado en distintas áreas del
-              derecho, comprometido con ofrecer soluciones eficientes y adaptadas a cada caso. </p>
-            <p> Nos caracterizamos por una comunicación clara, orientación precisa y un trabajo jurídico riguroso que
-              permite a nuestros clientes tomar decisiones informadas y seguras. </p>
-            <p> Atendemos a personas, familias, empresas e instituciones, ofreciendo un acompañamiento cercano,
-              profesional y personalizado en cada etapa del proceso. </p>
+              derecho, comprometido con ofrecer soluciones eficientes y adaptadas a cada caso.</p>
+            <p>Nos caracterizamos por una comunicación clara, orientación precisa y un trabajo jurídico riguroso que
+              permite a nuestros clientes tomar decisiones informadas y seguras.</p>
+            <p>Atendemos a personas, familias, empresas e instituciones, ofreciendo un acompañamiento cercano,
+              profesional y personalizado en cada etapa del proceso.</p>
           </div>
 
           <div class="col-xl-7">
             <div class="row gy-4 icon-boxes">
 
               <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
-                <br>
                 <div class="icon-box">
                   <i class="bi bi-buildings"></i>
                   <h3>Inauguración del campeonato interno</h3>
@@ -124,9 +121,8 @@
                     mediante actividades deportivas que fortalecen la unidad institucional.</p>
                 </div>
               </div>
-              <br>
+
               <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
-                <br>
                 <div class="icon-box">
                   <i class="bi bi-clipboard-pulse"></i>
                   <h3>Presentación de reinas</h3>
@@ -134,8 +130,8 @@
                     identidad y el espíritu institucional.</p>
                 </div>
               </div>
+
               <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
-                <br>
                 <div class="icon-box">
                   <i class="bi bi-command"></i>
                   <h3>Selección de fútbol</h3>
@@ -158,18 +154,20 @@
 
         </div>
       </div>
-
-
-    </section> <!-- /About Section -->
+    </section>
+    <!-- /About Section -->
 
     <!-- Misión y Visión Section -->
-    <section id="mision-vision" class="about section light-background">
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-        <div class="section-title text-center mb-5">
+
+         <section id="mision-vision" class="about section light-background">
+      <div class="container">
+
+        <div class="section-title">
           <h2>Misión y Visión</h2>
-          <div><span>Nuestra</span> <span class="description-title">Esencia Institucional</span></div>
+          <div><span>Últimos</span> <span class="description-title"> Esencia Institucional</span></div>
+
         </div>
 
         <div class="row align-items-xl-center gy-5">
@@ -226,6 +224,10 @@
             <div class="event-item p-3 border rounded shadow-sm h-100">
 
 
+              {% if evento.imagen %}
+              <img src="{{ evento.imagen.url }}" alt="{{ evento.nombre }}" class="img-fluid rounded mb-3"
+                style="height:260px; width:100%; object-fit:cover;">
+              {% endif %}
 
               <h3 class="mt-2">
                 <a href="#" class="stretched-link">{{ evento.nombre }}</a>
@@ -234,8 +236,11 @@
               <p>{{ evento.descripcion }}</p>
 
               <span class="badge">
-                {{ evento.fecha }} — {{ evento.hora }}
+                {{ evento.fecha_inicio|date:"d-m-Y" }} — {{ evento.fecha_fin|date:"d-m-Y" }}
+      
+                
               </span>
+
 
             </div>
           </div>
@@ -541,171 +546,340 @@
 
     <!-- Team Section -->
     <section id="team" class="team section">
-
-      <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Directivos</h2>
         <div><span>Nuestro</span> <span class="description-title">Equipo</span></div>
-      </div><!-- End Section Title -->
+      </div>
 
       <div class="container">
-
+        <!-- DIRECTIVOS PRINCIPALES -->
         <div class="row gy-5 justify-content-center">
-          <!--
-          <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="100">
 
-            <div class="member">
-              <div class="pic"><img src="{% static 'assets/img/gallery/presi.jpg' %}" class="img-fluid" alt=""></div>
-              <div class="member-info">
+          <!-- PRESIDENTE -->
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+            <div class="member text-center">
+              <div class="pic">
+                <img src="{% static 'assets/img/gallery/presi.jpg' %}" class="img-fluid" alt="Dr. Arturo Galarza">
+              </div>
+              <div class="member-info mt-3">
                 <h4>Dr. Arturo Galarza</h4>
-                <span>Presidente del Despacho de Abogados</span>
+                <span class="cargo">Presidente del Despacho de Abogados</span>
                 <br>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+                <div class="social mt-2">
+                  <a href="#"><i class="bi bi-twitter-x"></i></a>
+                  <a href="#"><i class="bi bi-facebook"></i></a>
+                  <a href="#"><i class="bi bi-instagram"></i></a>
+                  <a href="#"><i class="bi bi-linkedin"></i></a>
                 </div>
               </div>
             </div>
           </div>
-        -->
-          <!--PRESIDENTE-->
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="member">
-              <div class="pic"><img src="{% static 'assets/img/gallery/presi.jpg' %}" class="img-fluid" alt=""></div>
+
+          <!-- VICEPRESIDENTA -->
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+            <div class="member text-center">
+
+              <div class="pic">
+                <img src="{% static 'assets/img/gallery/advogada.jpg' %}" class="img-fluid" alt="Abg. Yudy Blacio">
+              </div>
+
               <div class="member-info">
-                <h4>Dr. Arturo Galarza</h4>
-                <span>Presidente del Despacho de Abogados</span>
+                <h4>Abg. Yudy Blacio</h4>
+                <span class="cargo">Vicepresidenta</span>
                 <br>
+
                 <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+                  <a href="#"><i class="bi bi-twitter-x"></i></a>
+                  <a href="#"><i class="bi bi-facebook"></i></a>
+                  <a href="#"><i class="bi bi-instagram"></i></a>
+                  <a href="#"><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+
+          <!-- SECRETARIO -->
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+            <div class="member text-center">
+              <div class="pic">
+                <img src="{% static 'assets/img/gallery/advogada.jpg' %}" class="img-fluid" alt="Abg. Luis Zambrano">
+              </div>
+              <div class="member-info mt-3">
+                <h4>Abg. Jonny Zavala</h4>
+                <span class="cargo">Secretario</span>
+                <br>
+                <div class="social mt-2">
+                  <a href="#"><i class="bi bi-twitter-x"></i></a>
+                  <a href="#"><i class="bi bi-facebook"></i></a>
+                  <a href="#"><i class="bi bi-instagram"></i></a>
+                  <a href="#"><i class="bi bi-linkedin"></i></a>
                 </div>
               </div>
             </div>
           </div>
-          <!--VICEPRESIDENTA-->
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="member">
-              <div class="pic"><img src="assets/img/team/team-3.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Abg. Yudy Blacio </h4>
-                <span>Vicepresidenta</span>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
+
+          <!-- TESORERA -->
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+            <div class="member text-center">
+              <div class="pic">
+                <img src="{% static 'assets/img/gallery/advogada.jpg' %}" class="img-fluid" alt="Abg. Diana Medina">
               </div>
-            </div>
-          </div>
-          <!--SECRETARIO-->
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="member">
-              <div class="pic"><img src="assets/img/team/team-3.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Abg. Jonny Zavala </h4>
-                <span>Secretario</span>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!--TESORERO-->
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="member">
-              <div class="pic"><img src="assets/img/team/team-3.jpg" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Abg. Diana Medina </h4>
-                <span>Tesorera</span>
-                <div class="social">
-                  <a href=""><i class="bi bi-twitter-x"></i></a>
-                  <a href=""><i class="bi bi-facebook"></i></a>
-                  <a href=""><i class="bi bi-instagram"></i></a>
-                  <a href=""><i class="bi bi-linkedin"></i></a>
+              <div class="member-info mt-3">
+                <h4>Abg. Diana Medina</h4>
+                <span class="cargo">Tesorera</span>
+                <br>
+                <div class="social mt-2">
+                  <a href="#"><i class="bi bi-twitter-x"></i></a>
+                  <a href="#"><i class="bi bi-facebook"></i></a>
+                  <a href="#"><i class="bi bi-instagram"></i></a>
+                  <a href="#"><i class="bi bi-linkedin"></i></a>
                 </div>
               </div>
             </div>
           </div>
 
         </div>
-        <div class="col-12 text-center mt-4">
-          <button class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#masDirectivos">
-            Ver más directivos
-          </button>
-
+        <br>
+        <br>
+        <!-- BOTÓN VER MÁS DIRECTIVOS -->
+        <div class="row">
+          <div class="col-12 text-center mt-4">
+            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#masDirectivos"
+              aria-expanded="false" aria-controls="masDirectivos">
+              Ver más directivos
+            </button>
+          </div>
         </div>
 
         <!-- DIRECTIVOS OCULTOS -->
-        <div id="masDirectivos" class="collapse mt-4" data-aos="none">
+        <div id="masDirectivos" class="collapse mt-5">
+          <div class="row gy-4 justify-content-center">
 
-
-          <div class="row gy-4">
-
-            <!-- DIRECTIVO 1 -->
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-              <div class="member">
-                <div class="pic"><img src="assets/img/team/directivo-5.jpg" class="img-fluid" alt=""></div>
-                <div class="member-info">
-                  <h4>Abg. Carlos Palacios</h4>
-                  <span>Vocal Principal</span>
-                  <div class="social">
-                    <a href=""><i class="bi bi-twitter-x"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
+            <div class="col-12 text-center mb-4">
+              <h4 class="team-subtitle">Vocales Principales</h4>
+            </div>
+            <!-- Directivo 1 -->
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+              <div class="member text-center">
+                <div class="pic">
+                  <img src="{% static 'assets/img/gallery/advogada.jpg' %}" class="img-fluid"
+                    alt="Abg. Carlos Palacios">
+                </div>
+                <div class="member-info mt-3">
+                  <h4>Abg. Jhon Ullauri</h4>
+                  <span class="cargo">Vocal Principal 1</span>
+                  <br>
+                  <div class="social mt-2">
+                    <a href="#"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- DIRECTIVO 2 -->
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
-              <div class="member">
-                <div class="pic"><img src="assets/img/team/directivo-6.jpg" class="img-fluid" alt=""></div>
-                <div class="member-info">
-                  <h4>Abg. Karina Viteri</h4>
-                  <span>Comisión Jurídica</span>
-                  <div class="social">
-                    <a href=""><i class="bi bi-twitter-x"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
+            <!-- Directivo 2 -->
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+              <div class="member text-center">
+                <div class="pic">
+                  <img src="{% static 'assets/img/gallery/advogada.jpg' %}" class="img-fluid" alt="Abg. Karina Viteri">
+                </div>
+                <div class="member-info mt-3">
+                  <h4>Abg. Evelyn Diaz</h4>
+                  <span class="cargo">Vocal Principal 2</span>
+                  <br>
+                  <div class="social mt-2">
+                    <a href="#"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- DIRECTIVO 3 -->
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-              <div class="member">
-                <div class="pic"><img src="assets/img/team/directivo-7.jpg" class="img-fluid" alt=""></div>
-                <div class="member-info">
-                  <h4>Abg. Jorge Sánchez</h4>
-                  <span>Comité de Ética</span>
-                  <div class="social">
-                    <a href=""><i class="bi bi-twitter-x"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
+            <!-- Directivo 3 -->
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+              <div class="member text-center">
+                <div class="pic">
+                  <img src="{% static 'assets/img/gallery/advogada.jpg' %}" class="img-fluid" alt="Abg. Jorge Sánchez">
+                </div>
+                <div class="member-info mt-4">
+                  <h4>Abg. Erick Solano</h4>
+                  <span class="cargo">Vocal Principal 3</span>
+                  <br>
+                  <div class="social mt-2">
+                    <a href="#"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- VOCALES SUPLENTES -->
+            <div class="col-12 text-center mb-4 mt-5">
+              <br>
+              <h4 class="team-subtitle">Vocales Suplentes</h4>
+            </div>
+            <!-- Directivo 4 -->
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+
+              <div class="member text-center">
+                <div class="pic">
+                  <img src="{% static 'assets/img/gallery/advogada.jpg' %}" class="img-fluid" alt="Abg. Jorge Sánchez">
+                </div>
+                <div class="member-info mt-3">
+                  <h4>Abg. Edison Suarez</h4>
+                  <span class="cargo">Vocal Suplente 1</span>
+                  <br>
+                  <div class="social mt-2">
+                    <a href="#"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
                   </div>
                 </div>
               </div>
             </div>
 
+
+
+            <!-- Directivo 5 -->
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+              <div class="member text-center">
+                <div class="pic">
+                  <img src="{% static 'assets/img/gallery/advogada.jpg' %}" class="img-fluid" alt="Abg. Jorge Sánchez">
+                </div>
+                <div class="member-info mt-3">
+                  <h4>Abg. Samanta Veintimilla</h4>
+                  <span class="cargo">Vocal Suplente 2</span>
+                  <br>
+                  <div class="social mt-2">
+                    <a href="#"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br>
+            <!-- Directivo  -->
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+              <div class="member text-center">
+                <div class="pic">
+                  <img src="{% static 'assets/img/gallery/advogada.jpg' %}" class="img-fluid" alt="Abg. Jorge Sánchez">
+                </div>
+                <div class="member-info mt-3">
+                  <h4>Abg. May Diaz</h4>
+                  <span class="cargo">Vocal Suplente 3</span>
+                  <br>
+                  <div class="social mt-2">
+                    <a href="#"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- VOCALES SUPLENTES -->
+            <div class="col-12 text-center mb-4 mt-5">
+              <h4 class="team-subtitle"></h4>
+            </div>
+            <!-- Directivo  -->
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+              <br>
+              <div class="member text-center">
+                <div class="pic">
+                  <img src="{% static 'assets/img/gallery/advogada.jpg' %}" class="img-fluid" alt="Abg. Jorge Sánchez">
+                </div>
+                <div class="member-info mt-3">
+                  <h4>Abg. Rene Ramon</h4>
+                  <span class="cargo">Vocal Suplente 4</span>
+                  <br>
+                  <div class="social mt-2">
+                    <a href="#"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+              <div class="member text-center">
+                <div class="pic">
+                  <img src="{% static 'assets/img/gallery/advogada.jpg' %}" class="img-fluid" alt="Abg. Jorge Sánchez">
+                </div>
+                <div class="member-info mt-3">
+                  <h4>Abg. Evelyn Escaleras</h4>
+                  <span class="cargo">Vocal Suplente 5</span>
+                  <br>
+                  <div class="social mt-2">
+                    <a href="#"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+              <div class="member text-center">
+                <div class="pic">
+                  <img src="{% static 'assets/img/gallery/advogada.jpg' %}" class="img-fluid" alt="Abg. Jorge Sánchez">
+                </div>
+                <div class="member-info mt-3">
+                  <h4>Abg. Joffre Rodriguez</h4>
+                  <span class="cargo">Vocal Suplente 6</span>
+                  <br>
+                  <div class="social mt-2">
+                    <a href="#"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+              <div class="member text-center">
+                <div class="pic">
+                  <img src="{% static 'assets/img/gallery/advogada.jpg' %}" class="img-fluid" alt="Abg. Jorge Sánchez">
+                </div>
+                <div class="member-info mt-3">
+                  <h4>Abg. Naomi Gomez</h4>
+                  <span class="cargo">Vocal Suplente 7</span>
+                  <br>
+                  <div class="social mt-2">
+                    <a href="#"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-
         </div>
 
-    </section><!-- /Team Section -->
+      </div>
+    </section>
+
+
+
+    <!-- /Team Section -->
+
 
     <!-- Noticias Section -->
 
@@ -735,7 +909,7 @@
                 <!-- Categoría y fecha -->
                 <div class="d-flex justify-content-between text-muted small mb-2">
                   <span><i class="bi bi-tag"></i> {{ noticia.categoria }}</span>
-                  <span><i class="bi bi-calendar"></i> {{ noticia.fecha|date:"d M Y" }}</span>
+                  <span><i class="bi bi-calendar"></i> {{ noticia.fecha_publicacion|date:"d M Y" }}</span>
                 </div>
 
                 <!-- Título -->
@@ -1023,16 +1197,18 @@
   <!-- <div id="preloader"></div> -->
 
   <!-- Vendor JS Files -->
-  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
   <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
   <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
   <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
   <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
 
 
   <!-- Main JS File -->
   <script src="{% static 'assets/js/main.js' %}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 
 

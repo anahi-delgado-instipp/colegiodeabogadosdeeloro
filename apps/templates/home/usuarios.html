@@ -5,6 +5,9 @@
 
 {% block content %}
 
+{% if request.user.is_staff %}
+
+
 <div class="header bg-gradient-green pb-6">
   <div class="container-fluid">
     <div class="header-body">
@@ -102,6 +105,7 @@
                   <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalEliminar{{ u.id }}">
                     <i class="fas fa-trash"></i>
                   </button>
+                
 
                 </td>
               </tr>
@@ -188,6 +192,22 @@
     </div>
   </div>
 </div>
+{% else %}
+<div class="container-fluid mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="alert alert-danger text-center">
+        <h4>🚫 Acceso denegado</h4>
+        <p>No tienes permisos autorizados para acceder a esta sección.</p>
+        <a href="{% url 'dashboard' %}" class="btn btn-primary mt-3">
+          Volver al dashboard
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}
+
 
 {% include "includes/footer.html" %}
 {% endblock content %}

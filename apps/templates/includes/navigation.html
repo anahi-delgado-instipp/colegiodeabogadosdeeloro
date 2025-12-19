@@ -5,42 +5,57 @@
     <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
 
       <!-- SEARCH -->
-      <form class="navbar-search navbar-search-light form-inline mr-sm-3">
+      <form class="navbar-search navbar-search-light form-inline mr-sm-3" method="GET" action="{% url 'dashboard' %}">
         <div class="form-group mb-0">
           <div class="input-group input-group-alternative input-group-merge">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-search"></i></span>
             </div>
-            <input class="form-control" placeholder="Buscar" type="text">
+            <input class="form-control" placeholder="Buscar" type="text" name="q" value="{{ request.GET.q }}">
           </div>
         </div>
-        <button type="button" class="close" data-action="search-close" aria-label="Close">
-          <span aria-hidden="true">×</span>
-        </button>
       </form>
 
-      <!-- FOTO Y USUARIO A LA DERECHA -->
+      <!-- FOTO Y USUARIO -->
       <ul class="navbar-nav align-items-center ml-auto">
-
         <li class="nav-item dropdown">
           <a class="nav-link pr-0" href="#" data-toggle="dropdown">
             <div class="media align-items-center">
-              
-              <!-- FOTO DEL USUARIO -->
+
+              <!-- FOTO -->
               <span class="avatar avatar-sm rounded-circle">
-                <img alt="Image" src="{% static 'assets/img/theme/team-4.jpg' %}">
+                {% if request.user.perfil.foto %}
+                  <img src="{{ request.user.perfil.foto.url }}"
+                       style="width:36px; height:36px; object-fit:cover; border-radius:50%;">
+                {% else %}
+                  <img src="{% static 'assets/img/default-avatar.png' %}"
+                       style="width:36px; height:36px; object-fit:cover; border-radius:50%;">
+                {% endif %}
               </span>
 
-              <!-- NOMBRE AL LADO -->
-              <div class="media-body ml-2 d-none d-lg-block">
-                <span class="mb-0 text-sm font-weight-bold">
+              <!-- ROL + USUARIO -->
+              <div class="ml-2 d-none d-lg-block">
+
+                <!-- ROL -->
+                <span class="text-white font-weight-bold d-block" style="font-size: 0.85rem;">
+                  {% if request.user.is_staff %}
+                    Administrador
+                  {% else %}
+                    Visitante
+                  {% endif %}
+                </span>
+
+                <!-- USERNAME -->
+                <span class="text-white text-sm d-block">
                   {{ request.user.username }}
                 </span>
+
               </div>
 
             </div>
           </a>
 
+          <!-- DROPDOWN -->
           <div class="dropdown-menu dropdown-menu-right">
             <a href="{% url 'profile' %}" class="dropdown-item">
               <i class="ni ni-single-02"></i> Mi Perfil
@@ -52,7 +67,6 @@
           </div>
 
         </li>
-
       </ul>
 
     </div>

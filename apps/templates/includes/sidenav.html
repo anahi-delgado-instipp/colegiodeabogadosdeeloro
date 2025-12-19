@@ -3,12 +3,14 @@
   <div class="scrollbar-inner">
 
     <!-- Logo -->
-    <div class="sidenav-header align-items-center">
-      <a class="navbar-brand" href="{% url 'dashboard' %}">
-        <img src="{% static 'assets/img/logo/logoemp.png' %}" class="navbar-brand-img" alt="Logo"
-          style="width: 140px; height: auto;">
+
+    <div class="sidenav-header d-flex justify-content-center">
+      <a href="{% url 'pagina_informatica' %}" class="nav-logo">
+        <img src="{% static 'assets/img/logo/logoemp.png' %}" alt="Colegio de Abogados"
+          style="height:80px; width:auto;">
       </a>
     </div>
+
 
     <div class="navbar-inner">
       <div class="collapse navbar-collapse" id="sidenav-collapse-main">
@@ -23,18 +25,11 @@
             </a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link sidenav-link {% if 'tablanoticias' in segment %}active{% endif %}"
-              href="{% url 'tablanoticias' %}">
-              <i class="ni ni-collection text-dark"></i>
-              <span class="nav-link-text text-dark">Noticias</span>
-            </a>
-          </li>
-
 
           <li class="nav-item">
-            <a class="nav-link sidenav-link {% if 'usuarios' in segment %}active{% endif %}" href="{% url 'usuarios' %}">
-              <i class="ni ni-planet text-dark"></i>
+            <a class="nav-link sidenav-link {% if 'usuarios' in segment %}active{% endif %}"
+              href="{% url 'usuarios' %}">
+              <i class="ni ni-single-02 text-dark"></i>
               <span class="nav-link-text text-dark">Usuarios</span>
             </a>
           </li>
@@ -46,38 +41,20 @@
             </a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link sidenav-link {% if 'profile' in segment %}active{% endif %}" href="{% url 'profile' %}">
-              <i class="ni ni-single-02 text-dark"></i>
-              <span class="nav-link-text text-dark">Profile</span>
-            </a>
-          </li>
 
           <li class="nav-item">
             <a class="nav-link sidenav-link {% if 'tables' in segment %}active{% endif %}" href="{% url 'tables' %}">
-              <i class="ni ni-bullet-list-67 text-dark"></i>
+              <i class="ni ni-calendar-grid-58 text-dark"></i>
+
               <span class="nav-link-text text-dark">Eventos</span>
             </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link sidenav-link" href="{% url 'login' %}">
-              <i class="ni ni-key-25 text-dark"></i>
-              <span class="nav-link-text text-dark">Login</span>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link sidenav-link" href="{% url 'register' %}">
-              <i class="ni ni-circle-08 text-dark"></i>
-              <span class="nav-link-text text-dark">Register</span>
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link sidenav-link" href="{% url 'logout' %}">
-              <i class="ni ni-user-run text-dark"></i>
-              <span class="nav-link-text text-dark">Logout</span>
+            <a class="nav-link sidenav-link {% if 'tablanoticias' in segment %}active{% endif %}"
+              href="{% url 'tablanoticias' %}">
+              <i class="ni ni-collection text-dark"></i>
+              <span class="nav-link-text text-dark">Noticias</span>
             </a>
           </li>
 

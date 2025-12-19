@@ -5,8 +5,8 @@ from apps.home.models import Evento, Noticia
 def pagina_informatica(request):
 
     # Cargar eventos y noticias siempre
-    eventos = Evento.objects.all().order_by('-fecha')
-    noticias = Noticia.objects.all().order_by('-fecha')
+    eventos = Evento.objects.all().order_by('-fecha_inicio')
+    noticias = Noticia.objects.all().order_by('-fecha_publicacion')
 
     # Si el usuario envía el formulario
     if request.method == 'POST':

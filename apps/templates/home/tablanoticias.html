@@ -18,11 +18,12 @@
             </ol>
           </nav>
         </div>
-
+        {% if request.user.is_staff %}
         <div class="col-lg-6 col-5 text-right">
           <a href="#" class="btn btn-sm btn-neutral" data-toggle="modal" data-target="#modalNoticia">Nueva noticia</a>
           <a href="#" class="btn btn-sm btn-neutral">Filtros</a>
         </div>
+        {% endif %}
       </div>
     </div>
   </div>
@@ -61,7 +62,7 @@
                     </div>
                     <div class="form-group col-md-4">
                       <label>Fecha</label>
-                      <input type="date" name="fecha" class="form-control" required>
+                      <input type="date" name="fecha_publicacion" class="form-control" required>
                     </div>
                   </div>
 
@@ -120,8 +121,9 @@
               {% for n in noticias %}
               <tr>
                 <td>{{ n.titulo }}</td>
-                <td>{{ n.fecha|date:"Y-m-d" }}</td>
+                <td>{{ n.fecha_publicacion|date:"d-m-Y" }}</td>
                 <td>{{ n.categoria }}</td>
+
                 <td style="max-width:300px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
                   {{ n.extracto }}
                 </td>
@@ -134,8 +136,7 @@
                   {% endif %}
                 </td>
 
-
-                <td>
+                <td style="max-width:300px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
                   {% if n.url %}
                   <a href="{{ n.url }}" target="_blank">{{ n.url }}</a>
                   {% else %}
@@ -144,24 +145,28 @@
                 </td>
 
                 <td class="text-center">
-                  <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalEditar{{ n.id }}"
-                    title="Editar">
+                  {% if user.is_staff %}
+                  <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalEditar{{ n.id }}">
                     <i class="fas fa-edit"></i>
                   </button>
 
-                  <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalEliminar{{ n.id }}"
-                    title="Eliminar">
+                  <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalEliminar{{ n.id }}">
                     <i class="fas fa-trash"></i>
                   </button>
+                  {% else %}
+                  <span class="text-muted small">Solo lectura</span>
+                  {% endif %}
                 </td>
               </tr>
-
               {% empty %}
               <tr>
-                <td colspan="7" class="text-center text-muted">No hay noticias registradas.</td>
+                <td colspan="7" class="text-center text-muted">
+                  No hay noticias registradas.
+                </td>
               </tr>
               {% endfor %}
             </tbody>
+
           </table>
         </div>
 
@@ -189,7 +194,7 @@
                     </div>
                     <div class="form-group col-md-4">
                       <label>Fecha</label>
-                      <input type="date" name="fecha" class="form-control" value="{{ n.fecha|date:'Y-m-d' }}" required>
+                      <input type="date" name="fecha_publicacion" class="form-control" value="{{ n.fecha_publicacion|date:'Y-m-d' }}" required>
                     </div>
                   </div>
 
@@ -227,7 +232,7 @@
                     <label>Contenido</label>
                     <textarea name="contenido" class="form-control" rows="6" required>{{ n.contenido }}</textarea>
                   </div>
-
+                  
                   <button type="submit" class="btn btn-info btn-block">Actualizar</button>
                 </form>
               </div>
@@ -274,23 +279,5 @@
 {% endblock content %}
 
 {% block javascripts %}
-<script>
-  function previewImage(event, previewId) {
-    const input = event.target;
-    const preview = document.getElementById(previewId);
 
-    if (!input.files || !input.files[0]) {
-      preview.style.display = 'none';
-      return;
-    }
-
-    const reader = new FileReader();
-    reader.onload = function (e) {
-      preview.src = e.target.result;
-      preview.style.display = 'block';
-    }
-
-    reader.readAsDataURL(input.files[0]);
-  }
-</script>
 {% endblock javascripts %}

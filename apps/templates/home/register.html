@@ -1,81 +1,143 @@
 {% extends 'layouts/base-fullscreen.html' %}
+{% load static %}
 
-{% block title %} Register {% endblock title %}
+{% block title %} Registro {% endblock title %}
+
+{% block stylesheets %}
+<style>
+  body.bg-default {
+      background-image: url("{% static 'assets/img/logo/logoo.png' %}");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+  }
+</style>
+{% endblock stylesheets %}
 
 {% block content %}
+<br><br>
 
 <div class="container mt--8 pb-5">
   <div class="row justify-content-center">
     <div class="col-lg-6 col-md-8">
-      <div class="card bg-secondary border-0">
+
+      <div class="card bg-secondary shadow border-0">
+        <div class="card-header bg-transparent pb-5">
+          <div class="text-muted text-center mt-2 mb-4">
+            <strong>Registrarse</strong>
+          </div>
+        </div>
 
         <div class="card-body px-lg-5 py-lg-5">
           <div class="text-center text-muted mb-4">
-            <small>Add your credentials</small>
+            Completa los datos para crear tu cuenta
           </div>
 
-          <form method="POST">
+          <!-- FORM -->
+          <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
 
-            <!-- Username -->
+            <!-- Nombres -->
             <div class="form-group">
-              <div class="input-group input-group-merge input-group-alternative mb-3">
+              <div class="input-group input-group-alternative mb-3">
                 <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                  <span class="input-group-text">
+                    <i class="ni ni-single-02"></i>
+                  </span>
                 </div>
-                <input name="username" class="form-control" placeholder="Username" type="text" required>
+                <input type="text" name="first_name" class="form-control"
+                       placeholder="Nombres" required>
+              </div>
+            </div>
+
+            <!-- Apellidos -->
+            <div class="form-group">
+              <div class="input-group input-group-alternative mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="ni ni-single-02"></i>
+                  </span>
+                </div>
+                <input type="text" name="last_name" class="form-control"
+                       placeholder="Apellidos" required>
+              </div>
+            </div>
+
+            <!-- Usuario -->
+            <div class="form-group">
+              <div class="input-group input-group-alternative mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">
+                    <i class="ni ni-hat-3"></i>
+                  </span>
+                </div>
+                <input type="text" name="username" class="form-control"
+                       placeholder="Usuario" required>
               </div>
             </div>
 
             <!-- Email -->
             <div class="form-group">
-              <div class="input-group input-group-merge input-group-alternative mb-3">
+              <div class="input-group input-group-alternative mb-3">
                 <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                  <span class="input-group-text">
+                    <i class="ni ni-email-83"></i>
+                  </span>
                 </div>
-                <input name="email" class="form-control" placeholder="Email" type="email" required>
+                <input type="email" name="email" class="form-control"
+                       placeholder="Correo electrónico" required>
               </div>
             </div>
 
-            <!-- Password -->
+            <!-- Contraseña -->
             <div class="form-group">
-              <div class="input-group input-group-merge input-group-alternative">
+              <div class="input-group input-group-alternative mb-3">
                 <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                  <span class="input-group-text">
+                    <i class="ni ni-lock-circle-open"></i>
+                  </span>
                 </div>
-                <input name="password" class="form-control" placeholder="Password" type="password" required>
+                <input type="password" name="password1" class="form-control"
+                       placeholder="Contraseña" required>
               </div>
             </div>
 
-            <!-- Confirm password -->
+            <!-- Confirmar contraseña -->
             <div class="form-group">
-              <div class="input-group input-group-merge input-group-alternative">
+              <div class="input-group input-group-alternative mb-3">
                 <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                  <span class="input-group-text">
+                    <i class="ni ni-lock-circle-open"></i>
+                  </span>
                 </div>
-                <input name="password2" class="form-control" placeholder="Password check" type="password" required>
+                <input type="password" name="password2" class="form-control"
+                       placeholder="Confirmar contraseña" required>
               </div>
             </div>
 
-            <!-- Checkbox -->
-            <div class="custom-control custom-control-alternative custom-checkbox">
-              <input class="custom-control-input" id="privacy" type="checkbox" required>
-              <label class="custom-control-label" for="privacy">
-                <span class="text-muted">I agree with the <a href="#">Privacy Policy</a></span>
-              </label>
-            </div>
-
-            <!-- Submit -->
+            <!-- BOTÓN -->
             <div class="text-center">
-              <button type="submit" class="btn btn-primary mt-4">Create account</button>
+              <button type="submit" class="btn btn-primary mt-4">
+                Crear cuenta
+              </button>
             </div>
 
           </form>
-        </div>
 
+        </div>
       </div>
+
     </div>
   </div>
+
+  <div class="row mt-3">
+    <div class="col text-center">
+      <a href="{% url 'login' %}" class="text-light">
+        <small>¿Ya tienes cuenta? Inicia sesión</small>
+      </a>
+    </div>
+  </div>
+
 </div>
 
 {% endblock content %}

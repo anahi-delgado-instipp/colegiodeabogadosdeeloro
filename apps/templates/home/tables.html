@@ -19,11 +19,14 @@
             </ol>
           </nav>
         </div>
-
+        {% if request.user.is_staff %}
         <div class="col-lg-6 col-5 text-right">
-          <a href="#" class="btn btn-sm btn-neutral" data-toggle="modal" data-target="#modalEvento">New</a>
-          <a href="#" class="btn btn-sm btn-neutral">Filters</a>
+          <a href="#" class="btn btn-sm btn-neutral" data-toggle="modal" data-target="#modalEvento">
+            New
+          </a>
         </div>
+        {% endif %}
+
       </div>
     </div>
   </div>
@@ -51,20 +54,41 @@
               </div>
 
               <div class="modal-body">
-                <form action="{% url 'guardar_evento' %}" method="POST">
+                <form action="{% url 'guardar_evento' %}" method="POST" enctype="multipart/form-data">
+
                   {% csrf_token %}
                   <div class="mb-3">
                     <label>Nombre del evento:</label>
                     <input type="text" name="nombre" class="form-control" required>
                   </div>
                   <div class="mb-3">
-                    <label>Fecha:</label>
-                    <input type="date" name="fecha" class="form-control" required>
+                    <label>fecha_inicio:</label>
+                    <input type="date" name="fecha_inicio" class="form-control" required>
                   </div>
+                  <div class="mb-3">
+                    <label>Fecha Fin:</label>
+                    <input type="date" name="fecha_fin" class="form-control" required>
+                  </div>
+
                   <div class="mb-3">
                     <label>Hora:</label>
                     <input type="time" name="hora" class="form-control" required>
                   </div>
+                  <div class="mb-3">
+                    <label>Estado:</label>
+                    <select name="estado" class="form-control">
+                      <option value="PROXIMO">Próximo</option>
+                      <option value="ACTIVO">Activo</option>
+                      <option value="FINALIZADO">Finalizado</option>
+                    </select>
+                  </div>
+
+                  <!-- FOTO DEL EVENTO -->
+                  <div class="mb-3">
+                    <label>Imagen (opcional)</label>
+                    <input type="file" name="imagen" class="form-control-file" accept="image/*">
+                  </div>
+
                   <div class="mb-3">
                     <label>Descripción:</label>
                     <textarea name="descripcion" class="form-control" rows="3"></textarea>
@@ -83,9 +107,13 @@
             <thead class="thead-light">
               <tr>
                 <th>Nombre del evento</th>
-                <th>Fecha</th>
+                <th>Fecha Inicio</th>
+                <th>Fecha Fin</th>
                 <th>Hora</th>
+                <th>Foto</th>
                 <th>Descripción</th>
+                <th>Estado</th>
+
                 <th>Acciones</th>
               </tr>
             </thead>
@@ -93,30 +121,42 @@
               {% for e in eventos %}
               <tr>
                 <td>{{ e.nombre }}</td>
-                <td>{{ e.fecha }}</td>
+                <td>{{ e.fecha_inicio|date:"d-m-Y" }}</td>
+                <td>{{ e.fecha_fin|date:"d-m-Y" }}</td>
                 <td>{{ e.hora }}</td>
-                <td>{{ e.descripcion }}</td>
                 <td>
+                  {% if e.imagen %}
+                  <img src="{{ e.imagen.url }}" alt="{{ e.nombre }}" class="img-thumbnail" style="max-height:60px;">
+                  {% else %}
+                  <span class="text-muted small">Sin imagen</span>
+                  {% endif %}
+                </td>
+                <td style="max-width:300px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+                  {{ e.descripcion }}
+                </td>
 
-                  <!-- BOTÓN EDITAR -->
+                <td>{{ e.estado }}</td>
+                <td>
+                  {% if request.user.is_staff %}
                   <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#modalEditar{{ e.id }}">
                     <i class="fas fa-edit"></i>
                   </button>
 
-                  <!-- BOTÓN ELIMINAR (abre modal flotante) -->
                   <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalEliminar{{ e.id }}">
                     <i class="fas fa-trash"></i>
                   </button>
-
+                  {% else %}
+                  <span class="text-muted">no tienes permiso</span>
+                  {% endif %}
                 </td>
-              </tr>
 
-              {% empty %}
+                {% empty %}
               <tr>
                 <td colspan="5" class="text-center text-muted">No hay eventos registrados.</td>
               </tr>
               {% endfor %}
             </tbody>
+
           </table>
         </div>
 
@@ -134,7 +174,7 @@
               </div>
 
               <div class="modal-body">
-                <form action="{% url 'editar_evento' e.id %}" method="POST">
+                <form action="{% url 'editar_evento' e.id %}" method="POST" enctype="multipart/form-data">
                   {% csrf_token %}
                   <div class="mb-3">
                     <label>Nombre del evento:</label>
@@ -142,8 +182,15 @@
                   </div>
 
                   <div class="mb-3">
-                    <label>Fecha:</label>
-                    <input type="date" name="fecha" class="form-control" value="{{ e.fecha|date:'Y-m-d' }}" required>
+                    <label>Fecha Inicio:</label>
+                    <input type="date" name="fecha" class="form-control" value="{{ e.fecha_inicio|date:'Y-m-d' }}"
+                      required>
+                  </div>
+
+                  <div class="mb-3">
+                    <label>Fecha Fin:</label>
+                    <input type="date" name="fecha_fin" class="form-control" value="{{ e.fecha_fin|date:'Y-m-d' }}"
+                      required>
                   </div>
 
                   <div class="mb-3">
@@ -152,8 +199,23 @@
                   </div>
 
                   <div class="mb-3">
+                    <label>Imagen nueva (opcional)</label>
+                    <input type="file" name="imagen" class="form-control-file" accept="image/*">
+                  </div>
+
+
+                  <div class="mb-3">
                     <label>Descripción:</label>
                     <textarea name="descripcion" class="form-control" rows="3">{{ e.descripcion }}</textarea>
+                  </div>
+
+                  <div class="mb-3">
+                    <label>Estado del evento:</label>
+                    <select name="estado" class="form-control" required>
+                      <option value="PROXIMO">Próximo</option>
+                      <option value="ACTIVO">Activo</option>
+                      <option value="FINALIZADO">Finalizado</option>
+                    </select>
                   </div>
 
                   <button type="submit" class="btn btn-info btn-block">Actualizar</button>
