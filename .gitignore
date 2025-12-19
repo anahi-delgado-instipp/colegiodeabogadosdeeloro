@@ -12,8 +12,8 @@ __pycache__/
 *.log
 
 # venv
-.env
-env
+
+env/
 venv
 
 # other
@@ -30,3 +30,26 @@ apps/static/assets/node_modules
 apps/static/assets/yarn.lock
 apps/static/assets/.temp
 
+#Entornos / IDE
+venv/
+.env
+.vscode
+.idea/
+
+#Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+*.egg
+
+#Django
+#db.sqlite3
+media/
+staticfiles/
+*.log
+
+#os
+.DS_Store
+Thumbs.db
