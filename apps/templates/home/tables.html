@@ -22,7 +22,10 @@
         {% if request.user.is_staff %}
         <div class="col-lg-6 col-5 text-right">
           <a href="#" class="btn btn-sm btn-neutral" data-toggle="modal" data-target="#modalEvento">
-            New
+            Nuevo Evento
+          </a>
+          <a href="#" class="btn btn-sm btn-neutral" data-toggle="modal" data-target="#modalFiltro">
+            Filtros
           </a>
         </div>
         {% endif %}
@@ -38,8 +41,56 @@
       <div class="card">
 
         <div class="card-header d-flex justify-content-between align-items-center">
-          <h3 class="mb-0">Eventos</h3>
+          <h3 class="mb-0">Listado de Eventos</h3>
         </div>
+
+        <!-- MODAL FILTRO EVENTOS -->
+        <div class="modal fade" id="modalFiltro" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog modal-md modal-dialog-centered">
+            <div class="modal-content">
+
+              <div class="modal-header bg-gradient-green text-white">
+                <h5 class="modal-title">Filtrar eventos</h5>
+                <button type="button" class="close text-white" data-dismiss="modal">
+                  <span>&times;</span>
+                </button>
+              </div>
+
+              <form method="GET" action="{% url 'tables' %}">
+                <div class="modal-body">
+
+                  <div class="form-group">
+                    <label>Estado</label>
+                    <select name="estado" class="form-control">
+                      <option value="">Todos</option>
+                      <option value="PROXIMO">Próximo</option>
+                      <option value="ACTIVO">Activo</option>
+                      <option value="FINALIZADO">Finalizado</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Desde</label>
+                    <input type="date" name="desde" class="form-control">
+                  </div>
+
+                  <div class="form-group">
+                    <label>Hasta</label>
+                    <input type="date" name="hasta" class="form-control">
+                  </div>
+
+                </div>
+
+                <div class="modal-footer">
+                  <a href="{% url 'tables' %}" class="btn btn-secondary">Limpiar</a>
+                  <button type="submit" class="btn btn-success">Filtrar</button>
+                </div>
+              </form>
+
+            </div>
+          </div>
+        </div>
+
 
         <!-- MODAL DE REGISTRO -->
         <div class="modal fade" id="modalEvento" tabindex="-1" aria-hidden="true">
@@ -183,7 +234,7 @@
 
                   <div class="mb-3">
                     <label>Fecha Inicio:</label>
-                    <input type="date" name="fecha" class="form-control" value="{{ e.fecha_inicio|date:'Y-m-d' }}"
+                    <input type="date" name="fecha_inicio" class="form-control" value="{{ e.fecha_inicio|date:'Y-m-d' }}"
                       required>
                   </div>
 

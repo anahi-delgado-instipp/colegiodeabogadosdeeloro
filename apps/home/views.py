@@ -80,37 +80,55 @@ def profile(request):
 
 
 @login_required(login_url="/login/")
-
 def tables(request):
     eventos = Evento.objects.all().order_by('-fecha_inicio')
 
-    # Filtrar solo eventos con fechas válidas
-    eventos = eventos.filter(fecha_inicio__isnull=False, fecha_fin__isnull=False)
+    estado = request.GET.get('estado')
+    desde = request.GET.get('desde')
+    hasta = request.GET.get('hasta')
 
-    fecha_inicio = request.GET.get('fecha_inicio')
-    fecha_fin = request.GET.get('fecha_fin')
+    if estado:
+        eventos = eventos.filter(estado=estado)
 
-    if fecha_inicio and fecha_fin:
-        eventos = eventos.filter(
-            fecha_inicio__gte=fecha_inicio,
-            fecha_fin__lte=fecha_fin
-        )
+    if desde:
+        eventos = eventos.filter(fecha_inicio__gte=desde)
+
+    if hasta:
+        eventos = eventos.filter(fecha_fin__lte=hasta)
 
     return render(request, "home/tables.html", {
-        "eventos": eventos,
-        "segment": "tables"
+        "eventos": eventos
     })
+
 
 
 
 
 @login_required(login_url="/login/")
+
+@login_required(login_url="/login/")
 def tablanoticias(request):
     noticias = Noticia.objects.all().order_by('-fecha_publicacion')
+
+    categoria = request.GET.get('categoria')
+    desde = request.GET.get('desde')
+    hasta = request.GET.get('hasta')
+
+    if categoria:
+        noticias = noticias.filter(categoria__icontains=categoria)
+
+    if desde:
+        noticias = noticias.filter(fecha_publicacion__gte=desde)
+
+    if hasta:
+        noticias = noticias.filter(fecha_publicacion__lte=hasta)
+
     return render(request, "home/tablanoticias.html", {
         "noticias": noticias,
         "segment": "tablanoticias"
     })
+
+
 
 
 def ver_noticia(request, noticia_id):
@@ -145,18 +163,19 @@ def editar_evento(request, evento_id):
     evento = get_object_or_404(Evento, id=evento_id)
 
     if request.method == "POST":
-        evento.nombre = request.POST['nombre']
-        evento.fecha_inicio = request.POST['fecha_inicio']
-        evento.fecha_fin = request.POST['fecha_fin']
-        evento.estado = request.POST.get('estado', 'PROXIMO')
+        evento.nombre = request.POST.get('nombre')
+        evento.fecha_inicio = request.POST.get('fecha_inicio')
+        evento.fecha_fin = request.POST.get('fecha_fin')
+        evento.hora = request.POST.get('hora')
+        evento.estado = request.POST.get('estado')
+        evento.descripcion = request.POST.get('descripcion')
 
-        evento.hora = request.POST['hora']
-        evento.descripcion = request.POST.get('descripcion', '')
         if request.FILES.get('imagen'):
-            evento.imagen = request.FILES.get('imagen')
-        evento.save()
+            evento.imagen = request.FILES['imagen']
 
-    return redirect("tables")
+        evento.save()
+        return redirect('tables')
+
 
 
 @login_required(login_url="/login/")
@@ -199,6 +218,7 @@ def editar_noticia(request, noticia_id):
         noticia.categoria = request.POST.get("categoria")
         noticia.extracto = request.POST.get("extracto")
         noticia.contenido = request.POST.get("contenido")
+        noticia.url = request.POST.get("url") or ""
 
         if request.FILES.get("imagen"):
             noticia.imagen = request.FILES.get("imagen")

@@ -85,7 +85,7 @@
           </div>
 
           <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-in">
-            <h1>Inicia sesión en <span>Colegio de Abogados</span> de el Oro</h1>
+            <h1>Colegio de Abogados de el Oro <span>de el Oro</span> </h1>
           </div>
 
         </div>
@@ -161,7 +161,7 @@
 
 
 
-         <section id="mision-vision" class="about section light-background">
+    <section id="mision-vision" class="about section light-background">
       <div class="container">
 
         <div class="section-title">
@@ -235,11 +235,18 @@
 
               <p>{{ evento.descripcion }}</p>
 
-              <span class="badge">
-                {{ evento.fecha_inicio|date:"d-m-Y" }} — {{ evento.fecha_fin|date:"d-m-Y" }}
-      
-                
-              </span>
+              <div class="d-flex flex-column align-items-start gap-2">
+                <span class="badge">
+                  Inicio: {{ evento.fecha_inicio|date:"d-m-Y" }}
+                </span>
+                <span class="badge">
+                  Fin: {{ evento.fecha_fin|date:"d-m-Y" }}
+                </span>
+                <span class="badge">
+                 Estado: {{ evento.estado }}
+                </span>
+              </div>
+
 
 
             </div>
@@ -720,7 +727,7 @@
                 </div>
               </div>
             </div>
-            
+
             <!-- VOCALES SUPLENTES -->
             <div class="col-12 text-center mb-4 mt-5">
               <br>

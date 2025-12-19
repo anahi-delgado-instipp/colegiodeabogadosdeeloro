@@ -21,7 +21,10 @@
         {% if request.user.is_staff %}
         <div class="col-lg-6 col-5 text-right">
           <a href="#" class="btn btn-sm btn-neutral" data-toggle="modal" data-target="#modalNoticia">Nueva noticia</a>
-          <a href="#" class="btn btn-sm btn-neutral">Filtros</a>
+          <a href="#" class="btn btn-sm btn-neutral" data-toggle="modal" data-target="#modalFiltro">
+            Filtros
+          </a>
+
         </div>
         {% endif %}
       </div>
@@ -37,6 +40,50 @@
         <div class="card-header d-flex justify-content-between align-items-center">
           <h3 class="mb-0">Listado de noticias</h3>
           <small class="text-muted">{{ noticias.count }} noticias</small>
+        </div>
+
+        <!-- =======================
+     MODAL FILTRO NOTICIAS
+========================= -->
+        <div class="modal fade" id="modalFiltro" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog modal-md modal-dialog-centered">
+            <div class="modal-content">
+
+              <div class="modal-header bg-gradient-green text-white">
+                <h5 class="modal-title">Filtrar noticias</h5>
+                <button type="button" class="close text-white" data-dismiss="modal">
+                  <span>&times;</span>
+                </button>
+              </div>
+
+              <form method="GET" action="{% url 'tablanoticias' %}">
+                <div class="modal-body">
+
+                  <div class="form-group">
+                    <label>Categoría</label>
+                    <input type="text" name="categoria" class="form-control" value="{{ request.GET.categoria }}">
+                  </div>
+
+                  <div class="form-group">
+                    <label>Desde</label>
+                    <input type="date" name="desde" class="form-control" value="{{ request.GET.desde }}">
+                  </div>
+
+                  <div class="form-group">
+                    <label>Hasta</label>
+                    <input type="date" name="hasta" class="form-control" value="{{ request.GET.hasta }}">
+                  </div>
+
+                </div>
+
+                <div class="modal-footer">
+                  <a href="{% url 'tablanoticias' %}" class="btn btn-secondary">Limpiar</a>
+                  <button type="submit" class="btn btn-success">Filtrar</button>
+                </div>
+              </form>
+
+            </div>
+          </div>
         </div>
 
         <!-- =======================
@@ -194,7 +241,8 @@
                     </div>
                     <div class="form-group col-md-4">
                       <label>Fecha</label>
-                      <input type="date" name="fecha_publicacion" class="form-control" value="{{ n.fecha_publicacion|date:'Y-m-d' }}" required>
+                      <input type="date" name="fecha_publicacion" class="form-control"
+                        value="{{ n.fecha_publicacion|date:'Y-m-d' }}" required>
                     </div>
                   </div>
 
@@ -232,7 +280,7 @@
                     <label>Contenido</label>
                     <textarea name="contenido" class="form-control" rows="6" required>{{ n.contenido }}</textarea>
                   </div>
-                  
+
                   <button type="submit" class="btn btn-info btn-block">Actualizar</button>
                 </form>
               </div>
