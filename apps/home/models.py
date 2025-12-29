@@ -47,7 +47,22 @@ class Perfil(models.Model):
     cedula = models.CharField(max_length=15, blank=True, null=True)
     fecha_nacimiento = models.DateField(blank=True, null=True)
     foto = models.ImageField(upload_to='profiles/', blank=True, null=True)
-    portada = models.ImageField(upload_to='portadas/', blank=True, null=True)
 
     def __str__(self):
         return f"{self.user.username} - {self.rol}"
+
+class Baselegal(models.Model):
+
+    TIPO_CHOICES = [
+        ('BASE', 'Base Legal'),
+        ('BIBLIOTECA', 'Biblioteca Legal'),
+    ]
+  
+    tema = models.CharField(max_length=200)
+    descripcion = models.TextField()
+    archivo = models.FileField(upload_to='documentos/')
+    fecha = models.DateField(auto_now_add=True)
+    tipo = models.CharField(max_length=30, choices=TIPO_CHOICES, default='BASE')
+
+    def __str__(self):
+        return self.tema

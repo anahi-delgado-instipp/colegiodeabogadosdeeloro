@@ -1,8 +1,14 @@
 # -*- encoding: utf-8 -*-
 from django import forms
 from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
+from django.contrib.auth.forms import SetPasswordForm, PasswordResetForm
+from django.core.exceptions import ValidationError
 
 
+# ======================
+# LOGIN
+# ======================
 class LoginForm(forms.Form):
     username = forms.CharField(
         widget=forms.TextInput(attrs={
@@ -18,6 +24,9 @@ class LoginForm(forms.Form):
     )
 
 
+# ======================
+# REGISTRO
+# ======================
 class SignUpForm(forms.ModelForm):
     password1 = forms.CharField(
         label="Contraseña",
@@ -37,12 +46,7 @@ class SignUpForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = (
-            "first_name",
-            "last_name",
-            "username",
-            "email",
-        )
+        fields = ("first_name", "last_name", "username", "email")
         widgets = {
             "first_name": forms.TextInput(attrs={
                 "placeholder": "Nombres",
@@ -75,13 +79,50 @@ class SignUpForm(forms.ModelForm):
     def save(self, commit=True):
         user = super().save(commit=False)
         user.set_password(self.cleaned_data["password1"])
-
-        # Usuario normal por defecto
         user.is_staff = False
         user.is_superuser = False
         user.is_active = True
 
         if commit:
             user.save()
-
         return user
+
+
+# ======================
+# CAMBIAR CONTRASEÑA (LINK DEL EMAIL)
+# ======================
+class CustomSetPasswordForm(SetPasswordForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        self.fields['new_password1'].widget.attrs.update({
+            'class': 'form-control',
+            'placeholder': 'Nueva contraseña',
+        })
+        self.fields['new_password2'].widget.attrs.update({
+            'class': 'form-control',
+            'placeholder': 'Confirmar contraseña',
+        })
+
+
+# ======================
+# RESET POR CORREO
+# ======================
+class CustomPasswordResetForm(PasswordResetForm):
+    email = forms.EmailField(
+        label="Correo electrónico",
+        max_length=254,
+        widget=forms.EmailInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'email@example.com'
+        })
+    )
+
+    def clean_email(self):
+        email = self.cleaned_data['email'].strip().lower()
+        UserModel = get_user_model()
+
+        if not UserModel.objects.filter(email__iexact=email, is_active=True).exists():
+            raise ValidationError("El correo electrónico no se encuentra registrado.")
+
+        return email

@@ -11175,9 +11175,13 @@ a.btn-icon-only {
   transform: translate(50%, -50%); }
 
 .chart {
-  position: relative;
-  height: 350px; }
-
+    position: relative;
+    height: 350px;
+}
+.chart-canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
 .chart-sm {
   height: 230px; }
 

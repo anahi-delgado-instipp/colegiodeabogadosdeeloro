@@ -25,11 +25,11 @@
               <!-- FOTO -->
               <span class="avatar avatar-sm rounded-circle">
                 {% if request.user.perfil.foto %}
-                  <img src="{{ request.user.perfil.foto.url }}"
-                       style="width:36px; height:36px; object-fit:cover; border-radius:50%;">
+                <img src="{{ request.user.perfil.foto.url }}"
+                  style="width:36px; height:36px; object-fit:cover; border-radius:50%;">
                 {% else %}
-                  <img src="{% static 'assets/img/default-avatar.png' %}"
-                       style="width:36px; height:36px; object-fit:cover; border-radius:50%;">
+                <img src="{% static 'assets/img/default-avatar.png' %}"
+                  style="width:36px; height:36px; object-fit:cover; border-radius:50%;">
                 {% endif %}
               </span>
 
@@ -39,9 +39,9 @@
                 <!-- ROL -->
                 <span class="text-white font-weight-bold d-block" style="font-size: 0.85rem;">
                   {% if request.user.is_staff %}
-                    Administrador
+                  Administrador
                   {% else %}
-                    Visitante
+                  Visitante
                   {% endif %}
                 </span>
 
@@ -60,10 +60,13 @@
             <a href="{% url 'profile' %}" class="dropdown-item">
               <i class="ni ni-single-02"></i> Mi Perfil
             </a>
-            <div class="dropdown-divider"></div>
-            <a href="{% url 'logout' %}" class="dropdown-item">
-              <i class="ni ni-user-run text-red"></i> Cerrar Sesión
-            </a>
+            <form method="post" action="{% url 'logout' %}">
+              {% csrf_token %}
+              <button type="submit" class="dropdown-item">
+                <i class="ni ni-user-run text-red"></i> Cerrar Sesión
+              </button>
+            </form>
+
           </div>
 
         </li>

@@ -1,76 +1,39 @@
 'use strict';
 
-//
-// Sales chart
-//
+var SalesChart = (function () {
 
-var SalesChart = (function() {
+  var canvas = document.getElementById('chart-sales-dark');
+  var dataEl = document.getElementById('eventos-data');
 
-  // Variables
+  if (!canvas || !dataEl) return;
 
-  var $chart = $('#chart-sales-dark');
+  var labels = JSON.parse(dataEl.dataset.labels);
+  var datos  = JSON.parse(dataEl.dataset.datos);
 
-
-  // Methods
-
-  function init($chart) {
-
-    var salesChart = new Chart($chart, {
-      type: 'line',
-      options: {
-        scales: {
-          yAxes: [{
-            gridLines: {
-              lineWidth: 1,
-              color: Charts.colors.gray[900],
-              zeroLineColor: Charts.colors.gray[900]
-            },
-            ticks: {
-              callback: function(value) {
-                if (!(value % 10)) {
-                  return '$' + value + 'k';
-                }
-              }
-            }
-          }]
-        },
-        tooltips: {
-          callbacks: {
-            label: function(item, data) {
-              var label = data.datasets[item.datasetIndex].label || '';
-              var yLabel = item.yLabel;
-              var content = '';
-
-              if (data.datasets.length > 1) {
-                content += '<span class="popover-body-label mr-auto">' + label + '</span>';
-              }
-
-              content += '<span class="popover-body-value">$' + yLabel + 'k</span>';
-              return content;
-            }
-          }
+  new Chart(canvas, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'Eventos por mes',
+        data: datos,
+        tension: 0.4,
+        fill: true,
+        backgroundColor: 'rgba(78,115,223,0.1)',
+        borderColor: 'rgba(78,115,223,1)',
+        borderWidth: 2,
+        pointRadius: 4
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y: {
+          beginAtZero: true
         }
-      },
-      data: {
-        labels: ['May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-        datasets: [{
-          label: 'Performance',
-          data: [0, 20, 10, 30, 15, 40, 20, 60, 60]
-        }]
       }
-    });
-
-    // Save to jQuery object
-
-    $chart.data('chart', salesChart);
-
-  };
-
-
-  // Events
-
-  if ($chart.length) {
-    init($chart);
-  }
+    }
+  });
 
 })();

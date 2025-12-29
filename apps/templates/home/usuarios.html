@@ -68,6 +68,13 @@
                     <label>Contraseña:</label>
                     <input type="password" name="password" class="form-control" required>
                   </div>
+                  <div class="mb-3">
+                    <label>Estado:</label>
+                    <select name="estado" class="form-control">
+                      <option value="ACTIVO">Activo</option>
+                      <option value="INACTIVO">Inactivo</option>
+                    </select>
+                  </div>
 
                   <button type="submit" class="btn btn-success btn-block">Guardar</button>
                 </form>
@@ -85,6 +92,7 @@
                 <th>Usuario</th>
                 <th>Correo</th>
                 <th>Nombre completo</th>
+                <th>Estado</th>
                 <th>Acciones</th>
               </tr>
             </thead>
@@ -94,6 +102,14 @@
                 <td>{{ u.username }}</td>
                 <td>{{ u.email }}</td>
                 <td>{{ u.first_name }} {{ u.last_name }}</td>
+                <td>
+                  {% if u.is_active %}
+                  <span class="badge badge-success">Activo</span>
+                  {% else %}
+                  <span class="badge badge-danger">Inactivo</span>
+                  {% endif %}
+                </td>
+
                 <td>
 
                   <!-- EDITAR -->
@@ -105,7 +121,7 @@
                   <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalEliminar{{ u.id }}">
                     <i class="fas fa-trash"></i>
                   </button>
-                
+
 
                 </td>
               </tr>
@@ -150,6 +166,14 @@
                   <div class="mb-3">
                     <label>Apellidos:</label>
                     <input type="text" name="last_name" class="form-control" value="{{ u.last_name }}">
+                  </div>
+
+                  <div class="mb-3">
+                    <label>Estado:</label>
+                    <select name="estado" class="form-control">
+                      <option value="ACTIVO" {% if u.is_active %}selected{% endif %}>Activo</option>
+                      <option value="INACTIVO" {% if not u.is_active %}selected{% endif %}>Inactivo</option>
+                    </select>
                   </div>
 
                   <button type="submit" class="btn btn-info btn-block">Actualizar</button>

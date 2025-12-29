@@ -1,0 +1,203 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block title %}Documentación Legal{% endblock title %}
+
+{% block content %}
+<div class="header bg-gradient-green pb-6">
+    <div class="container-fluid">
+        <div class="header-body">
+            <div class="row align-items-center py-4">
+                <div class="col-lg-6 col-7">
+                    <h6 class="h2 text-white d-inline-block mb-0">Documentación Legal</h6>
+                </div>
+
+                {% if request.user.is_staff %}
+                <div class="col-lg-6 col-5 text-right">
+                    <a href="#" class="btn btn-sm btn-neutral" data-toggle="modal" data-target="#modalDocumento">
+                        Nuevo Documento
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid mt--6">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+
+                <div class="card-header d-flex justify-content-between">
+                    <h3 class="mb-0">Listado de Documentos</h3>
+                    <small class="text-muted">{{ documentos.count }} documentos</small>
+                </div>
+
+                <!-- =======================
+             MODAL REGISTRAR DOCUMENTO
+        ======================== -->
+                <div class="modal fade" id="modalDocumento" tabindex="-1">
+                    <div class="modal-dialog modal-lg modal-dialog-centered">
+                        <div class="modal-content">
+
+                            <div class="modal-header bg-gradient-green text-white">
+                                <h5 class="modal-title">Registrar Documento</h5>
+                                <button type="button" class="close text-white" data-dismiss="modal">
+                                    <span>&times;</span>
+                                </button>
+                            </div>
+
+                            <form action="{% url 'guardar_documento' %}" method="POST" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label>Tipo de Documento</label>
+                                        <select name="tipo" class="form-control" required>
+                                            <option value="">Seleccione un tipo</option>
+                                            <option value="base">Base Legal</option>
+                                            <option value="biblioteca">Biblioteca Legal</option>
+                                        </select>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label>Tema General</label>
+                                        <input type="text" name="tema" class="form-control" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Descripción</label>
+                                        <textarea name="descripcion" class="form-control" rows="3" required></textarea>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Documento (PDF)</label>
+                                        <input type="file" name="archivo" accept="application/pdf"
+                                            class="form-control-file" required>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-success btn-block">
+                                        Guardar Documento
+                                    </button>
+
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TABLA -->
+                <div class="table-responsive mt-4">
+                    <table class="table table-flush">
+                        <thead class="thead-light">
+                            <tr>
+                                <th>Tema</th>
+                                <th>Descripción</th>
+                                <th>Documento</th>
+                                <th>Fecha</th>
+                                <th class="text-center">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for d in documentos %}
+                            <tr>
+                                <td>{{ d.tema }}</td>
+                                <td
+                                    style="max-width:300px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
+                                    {{ d.descripcion }}
+                                </td>
+                                <td>
+                                    <a href="{{ d.archivo.url }}" target="_blank" class="btn btn-sm btn-outline-danger">
+                                        <i class="bi bi-file-earmark-pdf"></i> Ver PDF
+                                    </a>
+                                </td>
+                                <td>{{ d.fecha|date:"d-m-Y" }}</td>
+
+                                <td class="text-center">
+                                    {% if user.is_staff %}
+                                    <button class="btn btn-info btn-sm" data-toggle="modal"
+                                        data-target="#modalEditar{{ d.id }}">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+
+                                    <a href="{% url 'eliminar_documento' d.id %}" class="btn btn-danger btn-sm"
+                                        onclick="return confirm('¿Eliminar este documento?');">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                    {% else %}
+                                    <span class="text-muted small">Solo lectura</span>
+                                    {% endif %}
+                                </td>
+                            </tr>
+
+                            <!-- =======================
+                   MODAL EDITAR DOCUMENTO
+              ======================== -->
+                            <div class="modal fade" id="modalEditar{{ d.id }}" tabindex="-1">
+                                <div class="modal-dialog modal-lg modal-dialog-centered">
+                                    <div class="modal-content">
+
+                                        <div class="modal-header bg-info text-white">
+                                            <h5 class="modal-title">Editar Documento</h5>
+                                            <button type="button" class="close text-white" data-dismiss="modal">
+                                                <span>&times;</span>
+                                            </button>
+                                        </div>
+
+                                        <form action="{% url 'editar_documento' d.id %}" method="POST"
+                                            enctype="multipart/form-data">
+                                            {% csrf_token %}
+                                            <div class="modal-body">
+
+                                                <div class="form-group">
+                                                    <label>Tema General</label>
+                                                    <input type="text" name="tema" class="form-control"
+                                                        value="{{ d.tema }}" required>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Descripción</label>
+                                                    <textarea name="descripcion" class="form-control" rows="3"
+                                                        required>{{ d.descripcion }}</textarea>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Documento (PDF)</label>
+                                                    <input type="file" name="archivo" accept="application/pdf"
+                                                        class="form-control-file">
+                                                    <small class="text-muted">
+                                                        Si no selecciona archivo, se mantiene el actual.
+                                                    </small>
+                                                </div>
+
+                                                <button type="submit" class="btn btn-info btn-block">
+                                                    Actualizar Documento
+                                                </button>
+
+                                            </div>
+                                        </form>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            {% empty %}
+                            <tr>
+                                <td colspan="5" class="text-center text-muted">
+                                    No hay documentos registrados.
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include "includes/footer.html" %}
+{% endblock content %}

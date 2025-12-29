@@ -15,6 +15,7 @@
   <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
   <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
   <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/css/tipoletra.css' %}" rel="stylesheet">
 
   <!-- Main CSS File -->
   <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
@@ -37,8 +38,7 @@
 
         <!-- LOGO -->
         <a href="{% url 'pagina_informatica' %}" class="nav-logo me-3">
-          <img src="{% static 'assets/img/logo/logoemp.png' %}" alt="Colegio de Abogados"
-            style="height:80px; width:auto; display:block;">
+          <img src="{% static 'assets/img/logo/logoemp.png' %}" alt="Colegio de Abogados">
         </a>
 
         <!-- MENÚ AL LADO DERECHO -->
@@ -85,7 +85,10 @@
           </div>
 
           <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-in">
-            <h1>Colegio de Abogados de el Oro <span>de el Oro</span> </h1>
+            <h1>Colegio de Abogados <br>de El Oro <span><br>
+              </span> </h1>
+
+            <h2 class="lema">"DILE SÍ AL CAMBIO"</h2>
           </div>
 
         </div>
@@ -100,14 +103,16 @@
 
           <div class="col-xl-5 content">
             <h3>Sobre nosotros</h3>
-            <h2>Estudio Jurídico</h2>
-            <p>Somos un estudio jurídico en la provincia de El Oro, dedicado a brindar asesoría y representación legal
-              con ética, responsabilidad y transparencia. Contamos con un equipo capacitado en distintas áreas del
-              derecho, comprometido con ofrecer soluciones eficientes y adaptadas a cada caso.</p>
-            <p>Nos caracterizamos por una comunicación clara, orientación precisa y un trabajo jurídico riguroso que
-              permite a nuestros clientes tomar decisiones informadas y seguras.</p>
-            <p>Atendemos a personas, familias, empresas e instituciones, ofreciendo un acompañamiento cercano,
-              profesional y personalizado en cada etapa del proceso.</p>
+            <h2>¿Quiénes somos?</h2>
+            <p>El Colegio de Abogados de El Oro es una institución gremial que agrupa, representa y fortalece a los
+              profesionales del Derecho de la provincia de El Oro. Comprometidos con la defensa del ejercicio ético de
+              la abogacía, el respeto al ordenamiento jurídico y la vigencia del Estado constitucional de derechos y
+              justicia.
+              Somos un espacio de encuentro, formación, defensa y respaldo para nuestros agremiados, comprometidos con
+              el desarrollo profesional continúo impartiendo capacitaciones y congresos, el fortalecimiento de la unidad
+              del gremio y promoción del esparcimiento para nuestros agremiados y sus familias. Nuestra labor se orienta
+              a dignificar la profesión jurídica y a contribuir activamente al fortalecimiento de la justicia y la
+              seguridad jurídica en nuestra provincia y en el país.</p>
           </div>
 
           <div class="col-xl-7">
@@ -125,7 +130,7 @@
               <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
                 <div class="icon-box">
                   <i class="bi bi-clipboard-pulse"></i>
-                  <h3>Presentación de reinas</h3>
+                  <h3>Selección de reinas</h3>
                   <p>Evento que destaca la elegancia, liderazgo y compromiso de nuestras representantes, reforzando la
                     identidad y el espíritu institucional.</p>
                 </div>
@@ -143,7 +148,7 @@
               <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
                 <div class="icon-box">
                   <i class="bi bi-graph-up-arrow"></i>
-                  <h3>Obra Pública</h3>
+                  <h3>Obra Institucional</h3>
                   <p>Comprometidos con el desarrollo social, impulsamos proyectos que contribuyen al crecimiento y
                     bienestar de la comunidad.</p>
                 </div>
@@ -170,33 +175,34 @@
 
         </div>
 
-        <div class="row align-items-xl-center gy-5">
+        <div class="row gy-5 align-items-stretch">
 
           <!-- Misión -->
-          <div class="col-xl-6">
+          <div class="col-xl-6 d-flex">
             <div class="icon-box text-center p-4" data-aos="fade-up" data-aos-delay="200">
               <i class="bi bi-bullseye" style="font-size: 60px; color:#0d6efd;"></i>
+              <br>
               <h3 class="mt-3">Misión</h3>
               <p>
-                Institución enfocada en brindar apoyo, representación y respaldo jurídico a nuestros miembros,
-                promoviendo el ejercicio ético, profesional y responsable de la abogacía en beneficio de la sociedad.
-                Impulsamos el desarrollo académico, institucional y gremial mediante servicios eficientes, capacitación
-                constante y acompañamiento especializado.
+                El Ilustre Colegio de Abogados de El Oro tiene como misión principal la representación y defensa de los
+                intereses profesionales de sus agremiados, abogados y abogadas de nuestra provincia de El Oro,
+                promoviendo el ejercicio ético, responsable y competente de la abogacía, mediante la capacitación
+                permanente, el fortalecimiento institucional y la participación activa en la vida jurídica y social..
               </p>
             </div>
           </div>
 
           <!-- Visión -->
-          <div class="col-xl-6">
+          <div class="col-xl-6 d-flex">
             <div class="icon-box text-center p-4" data-aos="fade-up" data-aos-delay="300">
               <i class="bi bi-eye" style="font-size: 60px; color:#0d6efd;"></i>
               <h3 class="mt-3">Visión</h3>
               <p>
-                Ser la institución jurídica líder de la provincia, reconocida por su excelencia profesional,
-                transparencia y
-                compromiso social. Aspiramos a fortalecer el gremio mediante innovación, integración y la defensa
-                permanente
-                de los derechos de nuestros miembros, contribuyendo al desarrollo legal y comunitario.
+                El Ilustre Colegio de Abogados de El Oro está comprometido con el trabajo continuo de ser una
+                institución gremial sólida, moderna y referente a nivel nacional, reconocida por su liderazgo,
+                transparencia y compromiso con sus agremiados, es aras de prevalecer la excelencia profesional, la
+                defensa del Estado de derechos y el fortalecimiento del sistema de justicia, consolidando al Colegio de
+                Abogados de El Oro como un pilar fundamental del desarrollo jurídico y social de nuestra provincia.
               </p>
             </div>
           </div>
@@ -218,42 +224,61 @@
 
         </div>
 
+        <div class="d-flex justify-content-center mb-4 gap-3">
+          <button class="btn btn-outline-primary btn-sm filter-btn active" data-filter="all">
+            Todos
+          </button>
+          <button class="btn btn-outline-primary btn-sm filter-btn" data-filter="proximo">
+            Proximos
+          </button>
+          <button class="btn btn-outline-primary btn-sm filter-btn" data-filter="finalizado">
+            Finalizados
+          </button>
+        </div>
+
         <div class="row">
           {% for evento in eventos %}
-          <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:1 }}00">
-            <div class="event-item p-3 border rounded shadow-sm h-100">
+          <div class="col-lg-4 col-md-6 mb-4 event-card" data-estado="{{ evento.estado|lower }}" data-aos="fade-up">
 
+            <div class="event-item p-3 border rounded shadow-sm h-100 d-flex flex-column">
 
               {% if evento.imagen %}
               <img src="{{ evento.imagen.url }}" alt="{{ evento.nombre }}" class="img-fluid rounded mb-3"
                 style="height:260px; width:100%; object-fit:cover;">
               {% endif %}
 
-              <h3 class="mt-2">
-                <a href="#" class="stretched-link">{{ evento.nombre }}</a>
-              </h3>
+              <div class="flex-grow-1 d-flex flex-column">
 
-              <p>{{ evento.descripcion }}</p>
+                <h3 class="mt-2">
+                  <a href="#" class="stretched-link">{{ evento.nombre }}</a>
+                </h3>
 
-              <div class="d-flex flex-column align-items-start gap-2">
-                <span class="badge">
-                  Inicio: {{ evento.fecha_inicio|date:"d-m-Y" }}
-                </span>
-                <span class="badge">
-                  Fin: {{ evento.fecha_fin|date:"d-m-Y" }}
-                </span>
-                <span class="badge">
-                 Estado: {{ evento.estado }}
-                </span>
+                <!-- DESCRIPCIÓN CRECE -->
+                <p class="flex-grow-1">
+                  {{ evento.descripcion }}
+                </p>
+
+                <!-- FECHAS SIEMPRE ABAJO -->
+                <div class="d-flex flex-column align-items-start gap-2 mt-auto">
+                  <span class="badge">
+                    Inicio: {{ evento.fecha_inicio|date:"d-m-Y" }}
+                  </span>
+                  <span class="badge">
+                    Fin: {{ evento.fecha_fin|date:"d-m-Y" }}
+                  </span>
+                  <span class="badge">
+                    Estado: {{ evento.estado }}
+                  </span>
+                </div>
+
               </div>
-
-
-
             </div>
+
           </div>
           {% endfor %}
-
         </div>
+
+      </div>
 
       </div>
     </section>
@@ -269,9 +294,9 @@
           <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
             <i class="bi bi-emoji-smile"></i>
             <div class="stats-item">
-              <span data-purecounter-start="0" data-purecounter-end="100" data-purecounter-duration="1"
+              <span data-purecounter-start="0" data-purecounter-end="2500" data-purecounter-duration="1"
                 class="purecounter"></span>
-              <p>Clientes </p>
+              <p>Proyectos </p>
             </div>
           </div><!-- End Stats Item -->
 
@@ -280,16 +305,16 @@
             <div class="stats-item">
               <span data-purecounter-start="0" data-purecounter-end="20" data-purecounter-duration="1"
                 class="purecounter"></span>
-              <p>Proyectos</p>
+              <p>Convenios</p>
             </div>
           </div><!-- End Stats Item -->
 
           <div class="col-lg-3 col-md-6 d-flex flex-column align-items-center">
             <i class="bi bi-headset"></i>
             <div class="stats-item">
-              <span data-purecounter-start="0" data-purecounter-end="100" data-purecounter-duration="1"
+              <span data-purecounter-start="0" data-purecounter-end="25" data-purecounter-duration="1"
                 class="purecounter"></span>
-              <p>Hours Of Support</p>
+              <p>Capacitaciones</p>
             </div>
           </div><!-- End Stats Item -->
 
@@ -298,7 +323,7 @@
             <div class="stats-item">
               <span data-purecounter-start="0" data-purecounter-end="11" data-purecounter-duration="1"
                 class="purecounter"></span>
-              <p>Trabajadores</p>
+              <p>Socios</p>
             </div>
           </div><!-- End Stats Item -->
 
@@ -385,9 +410,9 @@
               Participa activamente en la vida institucional.
             </p>
             <ul>
-              <li><i class="bi bi-check"></i><span> Cargos y comisiones.</span></li>
-              <li><i class="bi bi-check"></i><span> Eventos.</span></li>
-              <li><i class="bi bi-check"></i><span> Distinciones y premios.</span></li>
+              <li><i class="bi bi-check"></i><span> Entrega de Certificado</span></li>
+              <li><i class="bi bi-check"></i><span> Eventos</span></li>
+              <li><i class="bi bi-check"></i><span> Distinciones</span></li>
             </ul>
           </div>
 
@@ -454,25 +479,39 @@
             <!-- Testimonio 1 -->
             <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="{% static 'assets/img/testimonios/.jpg' %}" class="testimonial-img" alt="">
-                <h3>Dr. Juan Pérez</h3>
-                <h4>Abogado Penalista</h4>
+                <img src="{% static 'assets/img/testimonios/testimonio1.png' %}" class="testimonial-img" alt="">
+                <h3>Abg. Gustavo Izquierdo Muñoz.</h3>
                 <div class="stars">
                   <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i
                     class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
                 </div>
                 <p>
                   <i class="bi bi-quote quote-icon-left"></i>
-                  <span>El Colegio me ha brindado acompañamiento legal y capacitación constante.</span>
+                  <span>Con satisfacción puedo ver que las metas propuestas se están cumpliendo, se llegó a través de
+                    dificultades y teniendo en contra una minoría que valoraba más el cargo propio que el servicio
+                    común, hemos caminado paso a paso, con la colaboración de varios eminentes agremiados que con sus
+                    ideas, sus acciones y sus aportes, han logrado que el Colegio de Abogados de El Oro, pueda comenzar
+                    a tener brillo propio y no ser un apéndice de alguna otra institución, he visto el servicio social,
+                    las iniciativas académicas, los convenios y la gestión, todo eso se vé reflejado en el acceso de
+                    nosotros como agremiados a un ambiente donde podamos desarrollarnos como una comunidad profesional
+                    válida en nuestra provincia. Todo buen trabajo, tiene un buen líder y mérito también al Presidente
+                    del Colegio de Abogados de El Oro Arturo Galarza, a su Vicepresidenta Judi Blacio y a todos los
+                    miembros del Directorio, así como también a todos los abogados que aún no siendo parte del
+                    directorio, han permitido un crecimiento exponencial en las iniciativas y realidades del gremio.
+                    Loor a los colegas que buscan siempre el bienestar común del gremio! Mucho se ha hecho y mucho queda
+                    por hacer!
+                    Distinguidos Saludos </span>
+                   
                   <i class="bi bi-quote quote-icon-right"></i>
                 </p>
+                 
               </div>
             </div>
 
             <!-- Testimonio 2 -->
             <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="{% static 'assets/img/testimonials/socio2.jpg' %}" class="testimonial-img" alt="">
+                <img src="{% static 'assets/img/testimonios/testimonio1.png' %}" class="testimonial-img" alt="">
                 <h3>Abg. María Cedeño</h3>
                 <h4>Abogada Corporativa</h4>
                 <div class="stars">
@@ -490,7 +529,7 @@
             <!-- Testimonio 3 -->
             <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="{% static 'assets/img/testimonials/socio3.jpg' %}" class="testimonial-img" alt="">
+                <img src="{% static 'assets/img/testimonios/testimonio1.png' %}" class="testimonial-img" alt="">
                 <h3>Dr. Carlos Viteri</h3>
                 <h4>Asesor Jurídico Público</h4>
                 <div class="stars">
@@ -508,7 +547,7 @@
             <!-- Testimonio 4 -->
             <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="{% static 'assets/img/testimonials/socio4.jpg' %}" class="testimonial-img" alt="">
+                <img src="{% static 'assets/img/testimonios/testimonio1.png' %}" class="testimonial-img" alt="">
                 <h3>Abg. Daniela Torres</h3>
                 <h4>Abogada Laboralista</h4>
                 <div class="stars">
@@ -526,7 +565,7 @@
             <!-- Testimonio 5 -->
             <div class="swiper-slide">
               <div class="testimonial-item">
-                <img src="{% static 'assets/img/testimonials/socio5.jpg' %}" class="testimonial-img" alt="">
+                <img src="{% static 'assets/img/testimonios/testimonio1.png' %}" class="testimonial-img" alt="">
                 <h3>Dr. Andrés Molina</h3>
                 <h4>Especialista en Derecho Civil</h4>
                 <div class="stars">
@@ -569,15 +608,15 @@
                 <img src="{% static 'assets/img/gallery/presi.jpg' %}" class="img-fluid" alt="Dr. Arturo Galarza">
               </div>
               <div class="member-info mt-3">
-                <h4>Dr. Arturo Galarza</h4>
-                <span class="cargo">Presidente del Despacho de Abogados</span>
-                <br>
-                <div class="social mt-2">
-                  <a href="#"><i class="bi bi-twitter-x"></i></a>
-                  <a href="#"><i class="bi bi-facebook"></i></a>
-                  <a href="#"><i class="bi bi-instagram"></i></a>
-                  <a href="#"><i class="bi bi-linkedin"></i></a>
-                </div>
+                <h4>Dr. Luis Arturo Galarza Fernandez</h4>
+                <span class="cargo">Presidente del Colegio de Abogados de El Oro</span>
+
+                <!-- <div class="social mt-2">
+                    <a href="#"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                  </div>-->
               </div>
             </div>
           </div>
@@ -591,16 +630,16 @@
               </div>
 
               <div class="member-info">
-                <h4>Abg. Yudy Blacio</h4>
+                <h4>Abg. Yudy Lizeth Blacio Moreno</h4>
                 <span class="cargo">Vicepresidenta</span>
-                <br>
 
-                <div class="social">
-                  <a href="#"><i class="bi bi-twitter-x"></i></a>
-                  <a href="#"><i class="bi bi-facebook"></i></a>
-                  <a href="#"><i class="bi bi-instagram"></i></a>
-                  <a href="#"><i class="bi bi-linkedin"></i></a>
-                </div>
+
+                <!-- <div class="social mt-2">
+                    <a href="#"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                  </div>-->
               </div>
 
             </div>
@@ -614,15 +653,15 @@
                 <img src="{% static 'assets/img/gallery/advogada.jpg' %}" class="img-fluid" alt="Abg. Luis Zambrano">
               </div>
               <div class="member-info mt-3">
-                <h4>Abg. Jonny Zavala</h4>
+                <h4>Abg. Jonny Romulo Zavala Pineda</h4>
                 <span class="cargo">Secretario</span>
-                <br>
-                <div class="social mt-2">
-                  <a href="#"><i class="bi bi-twitter-x"></i></a>
-                  <a href="#"><i class="bi bi-facebook"></i></a>
-                  <a href="#"><i class="bi bi-instagram"></i></a>
-                  <a href="#"><i class="bi bi-linkedin"></i></a>
-                </div>
+
+                <!-- <div class="social mt-2">
+                    <a href="#"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                  </div>-->
               </div>
             </div>
           </div>
@@ -634,15 +673,15 @@
                 <img src="{% static 'assets/img/gallery/advogada.jpg' %}" class="img-fluid" alt="Abg. Diana Medina">
               </div>
               <div class="member-info mt-3">
-                <h4>Abg. Diana Medina</h4>
+                <h4>Abg. Diana Katerine Medina Farfan</h4>
                 <span class="cargo">Tesorera</span>
-                <br>
-                <div class="social mt-2">
-                  <a href="#"><i class="bi bi-twitter-x"></i></a>
-                  <a href="#"><i class="bi bi-facebook"></i></a>
-                  <a href="#"><i class="bi bi-instagram"></i></a>
-                  <a href="#"><i class="bi bi-linkedin"></i></a>
-                </div>
+
+                <!-- <div class="social mt-2">
+                    <a href="#"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                  </div>-->
               </div>
             </div>
           </div>
@@ -675,15 +714,15 @@
                     alt="Abg. Carlos Palacios">
                 </div>
                 <div class="member-info mt-3">
-                  <h4>Abg. Jhon Ullauri</h4>
+                  <h4>Abg. Jhon Paul Ullauri Hurtado</h4>
                   <span class="cargo">Vocal Principal 1</span>
-                  <br>
-                  <div class="social mt-2">
+
+                  <!-- <div class="social mt-2">
                     <a href="#"><i class="bi bi-twitter-x"></i></a>
                     <a href="#"><i class="bi bi-facebook"></i></a>
                     <a href="#"><i class="bi bi-instagram"></i></a>
                     <a href="#"><i class="bi bi-linkedin"></i></a>
-                  </div>
+                  </div>-->
                 </div>
               </div>
             </div>
@@ -695,15 +734,15 @@
                   <img src="{% static 'assets/img/gallery/advogada.jpg' %}" class="img-fluid" alt="Abg. Karina Viteri">
                 </div>
                 <div class="member-info mt-3">
-                  <h4>Abg. Evelyn Diaz</h4>
+                  <h4>Abg. Evelyn Mishel Diaz Diaz</h4>
                   <span class="cargo">Vocal Principal 2</span>
-                  <br>
-                  <div class="social mt-2">
+
+                  <!-- <div class="social mt-2">
                     <a href="#"><i class="bi bi-twitter-x"></i></a>
                     <a href="#"><i class="bi bi-facebook"></i></a>
                     <a href="#"><i class="bi bi-instagram"></i></a>
                     <a href="#"><i class="bi bi-linkedin"></i></a>
-                  </div>
+                  </div>-->
                 </div>
               </div>
             </div>
@@ -715,15 +754,15 @@
                   <img src="{% static 'assets/img/gallery/advogada.jpg' %}" class="img-fluid" alt="Abg. Jorge Sánchez">
                 </div>
                 <div class="member-info mt-4">
-                  <h4>Abg. Erick Solano</h4>
+                  <h4>Abg. Erick Patricio Solano Bravo</h4>
                   <span class="cargo">Vocal Principal 3</span>
-                  <br>
-                  <div class="social mt-2">
+
+                  <!-- <div class="social mt-2">
                     <a href="#"><i class="bi bi-twitter-x"></i></a>
                     <a href="#"><i class="bi bi-facebook"></i></a>
                     <a href="#"><i class="bi bi-instagram"></i></a>
                     <a href="#"><i class="bi bi-linkedin"></i></a>
-                  </div>
+                  </div>-->
                 </div>
               </div>
             </div>
@@ -742,15 +781,15 @@
                   <img src="{% static 'assets/img/gallery/advogada.jpg' %}" class="img-fluid" alt="Abg. Jorge Sánchez">
                 </div>
                 <div class="member-info mt-3">
-                  <h4>Abg. Edison Suarez</h4>
+                  <h4>Abg. Edison Rolando Suarez Salazar</h4>
                   <span class="cargo">Vocal Suplente 1</span>
-                  <br>
-                  <div class="social mt-2">
+
+                  <!-- <div class="social mt-2">
                     <a href="#"><i class="bi bi-twitter-x"></i></a>
                     <a href="#"><i class="bi bi-facebook"></i></a>
                     <a href="#"><i class="bi bi-instagram"></i></a>
                     <a href="#"><i class="bi bi-linkedin"></i></a>
-                  </div>
+                  </div>-->
                 </div>
               </div>
             </div>
@@ -764,15 +803,15 @@
                   <img src="{% static 'assets/img/gallery/advogada.jpg' %}" class="img-fluid" alt="Abg. Jorge Sánchez">
                 </div>
                 <div class="member-info mt-3">
-                  <h4>Abg. Samanta Veintimilla</h4>
+                  <h4>Abg. Samanta Judith Veintimilla Granda</h4>
                   <span class="cargo">Vocal Suplente 2</span>
-                  <br>
-                  <div class="social mt-2">
+
+                  <!-- <div class="social mt-2">
                     <a href="#"><i class="bi bi-twitter-x"></i></a>
                     <a href="#"><i class="bi bi-facebook"></i></a>
                     <a href="#"><i class="bi bi-instagram"></i></a>
                     <a href="#"><i class="bi bi-linkedin"></i></a>
-                  </div>
+                  </div>-->
                 </div>
               </div>
             </div>
@@ -784,15 +823,15 @@
                   <img src="{% static 'assets/img/gallery/advogada.jpg' %}" class="img-fluid" alt="Abg. Jorge Sánchez">
                 </div>
                 <div class="member-info mt-3">
-                  <h4>Abg. May Diaz</h4>
+                  <h4>Abg. May Chislandia Diaz Campana</h4>
                   <span class="cargo">Vocal Suplente 3</span>
-                  <br>
-                  <div class="social mt-2">
+
+                  <!-- <div class="social mt-2">
                     <a href="#"><i class="bi bi-twitter-x"></i></a>
                     <a href="#"><i class="bi bi-facebook"></i></a>
                     <a href="#"><i class="bi bi-instagram"></i></a>
                     <a href="#"><i class="bi bi-linkedin"></i></a>
-                  </div>
+                  </div>-->
                 </div>
               </div>
             </div>
@@ -808,15 +847,15 @@
                   <img src="{% static 'assets/img/gallery/advogada.jpg' %}" class="img-fluid" alt="Abg. Jorge Sánchez">
                 </div>
                 <div class="member-info mt-3">
-                  <h4>Abg. Rene Ramon</h4>
+                  <h4>Abg. Rene Alfredo Ramon Pelaez</h4>
                   <span class="cargo">Vocal Suplente 4</span>
-                  <br>
-                  <div class="social mt-2">
+
+                  <!-- <div class="social mt-2">
                     <a href="#"><i class="bi bi-twitter-x"></i></a>
                     <a href="#"><i class="bi bi-facebook"></i></a>
                     <a href="#"><i class="bi bi-instagram"></i></a>
                     <a href="#"><i class="bi bi-linkedin"></i></a>
-                  </div>
+                  </div>-->
                 </div>
               </div>
             </div>
@@ -827,15 +866,15 @@
                   <img src="{% static 'assets/img/gallery/advogada.jpg' %}" class="img-fluid" alt="Abg. Jorge Sánchez">
                 </div>
                 <div class="member-info mt-3">
-                  <h4>Abg. Evelyn Escaleras</h4>
+                  <h4>Abg. Evelyn Omaira Escaleras Rios</h4>
                   <span class="cargo">Vocal Suplente 5</span>
-                  <br>
-                  <div class="social mt-2">
+
+                  <!-- <div class="social mt-2">
                     <a href="#"><i class="bi bi-twitter-x"></i></a>
                     <a href="#"><i class="bi bi-facebook"></i></a>
                     <a href="#"><i class="bi bi-instagram"></i></a>
                     <a href="#"><i class="bi bi-linkedin"></i></a>
-                  </div>
+                  </div>-->
                 </div>
               </div>
             </div>
@@ -846,15 +885,15 @@
                   <img src="{% static 'assets/img/gallery/advogada.jpg' %}" class="img-fluid" alt="Abg. Jorge Sánchez">
                 </div>
                 <div class="member-info mt-3">
-                  <h4>Abg. Joffre Rodriguez</h4>
+                  <h4>Abg. Joffre Omar Rodriguez Rizzo</h4>
                   <span class="cargo">Vocal Suplente 6</span>
-                  <br>
-                  <div class="social mt-2">
+
+                  <!-- <div class="social mt-2">
                     <a href="#"><i class="bi bi-twitter-x"></i></a>
                     <a href="#"><i class="bi bi-facebook"></i></a>
                     <a href="#"><i class="bi bi-instagram"></i></a>
                     <a href="#"><i class="bi bi-linkedin"></i></a>
-                  </div>
+                  </div>-->
                 </div>
               </div>
             </div>
@@ -865,15 +904,15 @@
                   <img src="{% static 'assets/img/gallery/advogada.jpg' %}" class="img-fluid" alt="Abg. Jorge Sánchez">
                 </div>
                 <div class="member-info mt-3">
-                  <h4>Abg. Naomi Gomez</h4>
+                  <h4>Abg. Naomi Estefania Gomez Muñoz</h4>
                   <span class="cargo">Vocal Suplente 7</span>
-                  <br>
-                  <div class="social mt-2">
+
+                  <!-- <div class="social mt-2">
                     <a href="#"><i class="bi bi-twitter-x"></i></a>
                     <a href="#"><i class="bi bi-facebook"></i></a>
                     <a href="#"><i class="bi bi-instagram"></i></a>
                     <a href="#"><i class="bi bi-linkedin"></i></a>
-                  </div>
+                  </div>-->
                 </div>
               </div>
             </div>
@@ -898,10 +937,26 @@
           <div><span>Ultimas</span> <span class="description-title">publicaciones</span></div>
         </div>
 
+        <div class="d-flex justify-content-center mb-4 gap-3">
+          <button class="btn btn-outline-primary btn-sm date-filter active" data-filter="all">
+            Todas
+          </button>
+          <button class="btn btn-outline-primary btn-sm date-filter" data-filter="today">
+            Hoy
+          </button>
+          <button class="btn btn-outline-primary btn-sm date-filter" data-filter="week">
+            Últimos 7 días
+          </button>
+          <button class="btn btn-outline-primary btn-sm date-filter" data-filter="month">
+            Últimos 30 días
+          </button>
+        </div>
+
         <div class="row">
 
           {% for noticia in noticias %}
-          <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="{{ forloop.counter0|add:1 }}00">
+          <div class="col-md-4 mb-4 news-card" data-fecha="{{ noticia.fecha_publicacion|date:'Y-m-d' }}">
+
             <div class="card shadow-sm h-100">
 
               <!-- Imagen -->
@@ -963,34 +1018,79 @@
 
             <div class="faq-container px-xl-5" data-aos="fade-up" data-aos-delay="200">
 
-              <div class="faq-item faq-active">
+              <div class="faq-item">
                 <i class="faq-icon bi bi-question-circle"></i>
-                <h3>Cuáles son los métodos de pago disponibles</h3>
+                <h3>¿Cuáles son los Requisitos para Inscribirse al Colegio de Abogados de El Oro?</h3>
                 <div class="faq-content">
-                  <p>Aceptamos tarjetas de crédito, transferencias bancarias y pagos en efectivo.</p>
+                  <p>
+                    1. 2 fotos tamaño carnet <br>
+                    2. Copia de título de universidad <br>
+                    3. Impresión de título de Senecyt <br>
+                    4. Copia de cédula y certificado de votación <br>
+                    5. Depósito, transferencia o Pago en efectivo de $ 100 a la Cuenta de Ahorros del Colegio de
+                    Abogados de El Oro Nro. 2034658 de la Cooperativa Jardín Azuayo <br>
+                    6. Pagar $10 para la Credencial, en la Cuenta de Ahorros del Colegio de Abogados de El Oro Nro.
+                    2034658 de la Cooperativa Jardín Azuayo
+                  </p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
 
               <div class="faq-item">
                 <i class="faq-icon bi bi-question-circle"></i>
-                <h3>¿Cómo puedo solicitar uno de sus servicios?</h3>
+                <h3>¿Cómo puedo solicitar la credencial del Colegio de Abogados de El Oro?</h3>
                 <div class="faq-content">
-                  <p>Puedes contactarnos a través del formulario de contacto o acercarte directamente a nuestras
-                    oficinas.</p>
+                  <p>Pagar la credencial: foto digital, nombres completos, número de cédula, fecha de nacimiento, tipo
+                    de sangre y el pago de $10 a la Cuenta de Ahorros del Colegio de Abogados de El Oro Nro. 2034658 de
+                    la Cooperativa Jardín Azuayo..</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
 
               <div class="faq-item">
                 <i class="faq-icon bi bi-question-circle"></i>
-                <h3>Qué requisitos necesito para acceder a un servicio?</h3>
+                <h3>¿A qué cuenta puedo pagar las Cuotas Sociales?</h3>
                 <div class="faq-content">
-                  <p>Necesita presentar una identificación válida y cumplir con los requisitos específicos del servicio
-                    solicitado.</p>
+                  <p>COLEGIO DE ABOGADOS DE EL ORO
+                    COOP JARDIN AZUAYO
+                    CTA AHORROS Nro. 2034658
+                    RUC Nro. 0791706270001
+                    DIRECC: AV MADERO VARGAS
+                    MAIL: colegiodeabogadosdeeloro@gmail.com.</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <i class="faq-icon bi bi-question-circle"></i>
+                <h3>¿De qué manera se puede pagar las Cuotas Sociales?</h3>
+                <div class="faq-content">
+                  <p>Se puede pagar mediante transferencia, deposito o pago en efectivo en la Oficina ubicada en las
+                    calles Sucre y Santa Rosa Esquina.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <i class="faq-icon bi bi-question-circle"></i>
+                <h3>¿Cuánto es el valor de la Cuota Social?</h3>
+                <div class="faq-content">
+                  <p>Es el valor de $ 10 mensuales.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
+              <div class="faq-item">
+                <i class="faq-icon bi bi-question-circle"></i>
+                <h3>¿Cómo acceder a los Convenios Interinstitucionales y a las Capacitaciones impartidas por el Colegio
+                  de Abogados de El Oro?</h3>
+                <div class="faq-content">
+                  <p>Los agremiados deben estar al día en sus cuotas sociales y solicitar la certificación
+                    correspondiente al Colegio de Abogados de El Oro.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+
 
             </div>
 
@@ -1010,8 +1110,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-        <div><span>Check Our</span> <span class="description-title">Contact</span></div>
+        <h2>Contacto</h2>
+        <div><span>Contáctanos</span> <span class="description-title"></span></div>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade" data-aos-delay="100">
@@ -1022,7 +1122,7 @@
             <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
               <i class="bi bi-geo-alt flex-shrink-0"></i>
               <div>
-                <h3>Address</h3>
+                <h3>Direción</h3>
                 <p>Av. Sucre y Santa Rosa</p>
               </div>
             </div>
@@ -1031,7 +1131,7 @@
               <i class="bi bi-envelope flex-shrink-0"></i>
               <div>
                 <h3>Email Us</h3>
-                <p>colegiodeabo@gmail.com</p>
+                <p>colegiodeabogadosdeeloro@gmail.com</p>
               </div>
             </div><!-- End Info Item -->
 
@@ -1053,12 +1153,12 @@
 
                 <!-- Nombre -->
                 <div class="col-md-6">
-                  <input type="text" name="name" class="form-control" placeholder="Tu nombre" required>
+                  <input type="text" name="name" class="form-control" placeholder="Nombres y Apellidos" required>
                 </div>
 
                 <!-- Email -->
                 <div class="col-md-6">
-                  <input type="email" name="email" class="form-control" placeholder="Tu correo electrónico" required>
+                  <input type="email" name="email" class="form-control" placeholder="Correo electrónico" required>
                 </div>
 
                 <!-- Asunto -->
@@ -1089,39 +1189,58 @@
 
     </section><!-- /Contact Section -->
 
-    <!-- Base Legal Section -->
     <section id="base-legal" class="base-legal section light-background">
 
-      <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Base Legal</h2>
-        <div><span>Fundamento</span> <span class="description-title">Legal Institucional</span></div>
+        <div>
+          <span>Base </span>
+          <span class="description-title">Legal </span>
+        </div>
       </div>
-      <!-- End Section Title -->
 
       <div class="container">
-        <div class="row justify-content-center"> <!-- ESTA LÍNEA CENTRA LOS ITEMS -->
+        <div class="row justify-content-center">
 
+          {% for d in documentos_base %}
           <div class="col-lg-6">
-            <div class="legal-item p-4 border rounded mb-5" data-aos="fade-up" data-aos-delay="100">
-              <h4><i class="bi bi-bank me-2"></i> Estatuto del Colegio de Abogados de el Oro</h4>
-              <p>
-                Documento que establece el marco normativo institucional, estructura organizacional, derechos y deberes
-                de sus miembros, y principios que guían nuestro accionar profesional.
-              </p>
+            <div class="legal-item p-4 border rounded mb-5" data-aos="fade-up">
 
-              <a href="{% static 'pdf/Estatutodelcolegio.pdf' %}" class="btn btn-primary mt-3" download>
+              <h4>
+                <i class="bi bi-file-earmark-pdf me-2 text-danger"></i>
+                {{ d.tema }}
+              </h4>
+
+              <p>{{ d.descripcion }}</p>
+
+              <a href="{{ d.archivo.url }}" class="btn btn-primary mt-3" target="_blank">
                 Descargar PDF
               </a>
 
             </div>
           </div>
-
+          {% empty %}
+          <div class="col-12 text-center">
+            <p>No existen documentos legales registrados.</p>
+          </div>
+          {% endfor %}
 
         </div>
       </div>
 
     </section>
+    <section id="base-legal" class="base-legal section light-background">
+  <div class="container section-title">
+    <h2>Base Legal</h2>
+    <p>Consulta nuestras normas, reglamentos y documentos legales.</p>
+
+    <a href="{% url 'biblioteca_legal' %}" class="btn btn-primary mt-3">
+      Ver Biblioteca Legal
+    </a>
+  </div>
+</section>
+
+
     <!-- /Base Legal Section -->
 
 
@@ -1168,20 +1287,21 @@
         <div class="col-lg-4 col-md-6 footer-about">
           <a href="{% url 'pagina_informatica' %}" class="logo d-flex align-items-center">
             <span class="sitename">Colegio
-              de Abogados <br> de el Oro
+              de Abogados de el Oro <br>
             </span>
           </a>
           <div class="footer-contact pt-3">
             <p>Av. Sucre
               y Santa Rosa</p>
             <!-- <p class="mt-3"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p> -->
-            <p><strong>Email:</strong> <span>colegiodeabo@gmail.com</span></p>
+            <p><strong>Email:</strong> <span>colegiodeabogadosdeeloro@gmail.com</span></p>
           </div>
           <div class="social-links d-flex mt-4">
             <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
+            <a href="https://www.facebook.com/Colegio.Abogados.ElOro"><i class="bi bi-facebook"></i></a>
+            <a
+              href="https://www.instagram.com/colegiodeabogadosdeeloro1967?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i
+                class="bi bi-instagram"></i></a>
           </div>
         </div>
 
@@ -1209,13 +1329,15 @@
   <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
   <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
   <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
-  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/js/personalizado.js' %}"></script>
 
 
 
   <!-- Main JS File -->
   <script src="{% static 'assets/js/main.js' %}"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  
 
 
 

@@ -1,0 +1,105 @@
+{% load static %}
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <link rel="icon" href="{% static 'assets/img/logo/logoemp.png' %}" type="image/png">
+  <title>Colegio de Abogado de el oro</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <!--CSS-PAGINA INFORMATIVA-->
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/css/tipoletra.css' %}" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/css/argon.css' %}" rel="stylesheet">
+
+  <!-- CSS Personalizado -->
+  <link href="{% static 'assets/css/personalizado.css' %}" rel="stylesheet">
+
+
+</head>
+
+<header id="header" class="header d-flex align-items-center fixed-top bg-verde-oro">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+
+      <nav id="navmenu" class="navmenu d-flex align-items-center"
+        style="display:flex; align-items:center; justify-content:space-between; width:100%;">
+
+        <!-- LOGO -->
+        <a href="{% url 'pagina_informatica' %}" class="nav-logo me-3">
+          <img src="{% static 'assets/img/logo/logoemp.png' %}" alt="Colegio de Abogados">
+        </a>
+
+        <!-- MENÚ AL LADO DERECHO -->
+        <ul class="nav-links d-flex align-items-center"
+          style="display:flex; align-items:center; gap:25px; margin:0; padding:0; list-style:none;">
+
+          <li><a href="#hero" class="active">Inicio</a></li>
+          <li><a href="#about">Nosotros</a></li>
+          <li><a href="#events">Eventos</a></li>
+          <li><a href="#testimonials">Testimonios</a></li>
+          <li><a href="#team">Equipo</a></li>
+          <li><a href="#noticias">Noticias</a></li>
+
+          <li><a href="#contact">Contacto</a></li>
+
+          <li>
+            <a href="{% url 'login' %}">
+              <i class="bi bi-people" style="margin-right: 5px;"></i>
+              Iniciar sesión
+            </a>
+          </li>
+
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+
+    </div>
+  </header><!-- End Header -->
+
+
+{% block content %}
+<section class="section">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Biblioteca Legal</h2>
+      <p>Documentos legales institucionales</p>
+    </div>
+
+    <div class="row">
+
+      {% for d in documentos_biblioteca %}
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">
+              <i class="bi bi-file-earmark-pdf text-danger"></i>
+              {{ d.tema }}
+            </h5>
+            <p class="card-text">{{ d.descripcion }}</p>
+          </div>
+          <div class="card-footer text-center">
+            <a href="{{ d.archivo.url }}" target="_blank" class="btn btn-outline-primary">
+              Descargar PDF
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+
+  </div>
+</section>
+{% endblock %}
