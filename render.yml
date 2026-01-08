@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: fisiodmed-n
+    env: python
+    plan: free
+    buildCommand: |
+      pip install -r requirements.txt
+      python manage.py collectstatic --noinput
+      python manage.py migrate
+      python create_superuser.py
+    startCommand: gunicorn core.wsgi:application
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: core.settings
+      - key: PYTHON_VERSION
+        value: 3.11
+      - key: DJANGO_SUPERUSER_USERNAME
+        value: delgado12
+      - key: DJANGO_SUPERUSER_EMAIL
+        value: notmxly@gmail.com
+      - key: DJANGO_SUPERUSER_PASSWORD
+        value: 1212
+      - key: SECRET_KEY
+        value: django-insecure-4$k1^9@z!r2p8%q6m#x0y*e7a&b3h_wl5u=csjvnto
