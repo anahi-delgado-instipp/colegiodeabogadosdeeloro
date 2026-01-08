@@ -16,10 +16,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 SECRET_KEY = config('SECRET_KEY', default='S#perS3crEt_1122')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=True, cast=bool)
+DEBUG = config('DEBUG', default=False, cast=bool)
+
 
 # load production server from .env
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'ColegioAbog.onrender.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'colegiodeabogadosdeeloro-2.onrender.com']
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://colegiodeabogadosdeeloro-2.onrender.com',
+]
+
 
 # Application definition
 INSTALLED_APPS = [
@@ -95,6 +101,7 @@ USE_TZ = True
 # === STATIC FILES ===
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATICFILES_DIRS = [
     BASE_DIR / 'apps' / 'static',
 ]
@@ -109,5 +116,6 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-EMAIL_HOST_USER = 'notmxly@gmail.com'
-EMAIL_HOST_PASSWORD = 'dvhz ieik crgk vhcp'
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+# =======================
