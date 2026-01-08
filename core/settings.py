@@ -20,11 +20,9 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 
 # load production server from .env
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'colegiodeabogadosdeeloro-2.onrender.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.onrender.com']
 
-CSRF_TRUSTED_ORIGINS = [
-    'https://colegiodeabogadosdeeloro-2.onrender.com',
-]
+
 
 
 # Application definition
