@@ -2,13 +2,15 @@
    FONDO VERDE – ORO
 ================================ */
 .bg-verde-oro {
-  background: linear-gradient(90deg,
-      #145633 0%,
-      #23784b 30%,
-      #b9ab09 30%,
-      #eadd47 70%,
-      #145633 70%,
-      #145633 100%);
+  background: linear-gradient(
+    90deg,
+    #145633 0%,
+    #23784b 30%,
+    #b9ab09 30%,
+    #eadd47 70%,
+    #145633 70%,
+    #145633 100%
+  );
 }
 
 .text-oro {
@@ -37,17 +39,17 @@
 }
 
 .logos-enlaces {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: center !important;
-  text-align: center !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .logos-enlaces img {
   width: 160px;
   height: auto;
   object-fit: contain;
-  transition: 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .logos-enlaces img:hover {
@@ -67,7 +69,7 @@
 
 .base-legal .legal-item {
   background: #ffffff;
-  transition: 0.3s;
+  transition: all 0.3s ease;
 }
 
 .base-legal .legal-item:hover {
@@ -86,36 +88,48 @@
   background-color: #6EE7B7 !important;
   color: #0f172a !important;
 }
-
 /* ===============================
    TESTIMONIOS
 ================================ */
-.testimonials {
-  position: relative;
-  padding: 80px 0;
-  overflow: hidden;
+
+/* Asegura que Swiper no recorte contenido */
+.testimonial-item,
+.swiper-slide {
+  height: auto !important;
 }
 
-.testimonials-bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+/* Imagen de testimonio: todas iguales */
+.testimonial-img {
+  width: 120px;
+  height: 120px;
   object-fit: cover;
-  z-index: -1;
-  opacity: 0.35;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 15px auto;
 }
 
+/* Texto del testimonio */
 .testimonial-text {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;  
-   line-clamp: 3;   /* SOLO 4 líneas */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  font-size: 14.5px;
-  line-height: 1.6;
+  position: relative;
+  overflow: visible !important;
 }
 
+/* Texto largo oculto por defecto */
+.more-text {
+  display: none;
+}
+
+/* Botón Leer más */
+.read-more {
+  display: block;
+  margin-top: 15px;
+  text-align: center;
+  font-weight: 700;
+  color: #0d6efd !important;
+  text-decoration: underline;
+  cursor: pointer;
+  z-index: 10;
+}
 
 /* ===============================
    SIDENAV
@@ -252,23 +266,8 @@
 }
 
 /* ===============================
-   BOTONES PERSONALIZADOS 
+   HEADER / MENÚ
 ================================ */
-
-.header nav,
-.header .container,
-.header .container-fluid {
-  height: 100%;
-  align-items: center;
-}
-
-
-
-/* ===============================
-   REDUCIR ALTURA DEL MENÚ
-================================ */
-
-/* Altura real del header */
 header,
 .header {
   height: 80px !important;
@@ -276,38 +275,31 @@ header,
   padding: 0 !important;
 }
 
-/* Evitar que el contenido lo estire */
 .header nav {
   display: flex;
   align-items: center;
   height: 100%;
 }
 
-/* Contenedores internos */
 .header .container,
 .header .container-fluid {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
+  padding: 0 !important;
   height: 100%;
   display: flex;
   align-items: center;
 }
 
-.hero-img img {
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
-}
-
-
-/* Logo MÁS pequeño */
+/* Logo */
 .nav-logo img {
   height: 72px !important;
   width: auto;
 }
 
-/* Links más compactos */
+/* Links */
+.nav-links {
+  gap: 25px !important;
+}
+
 .nav-links li a {
   color: white !important;
   font-size: 13px;
@@ -315,45 +307,33 @@ header,
   line-height: 1;
 }
 
-/* Espacio entre opciones */
-.nav-links {
-  gap: 25px !important;
-}
-
 /* ===============================
-   NOTICIAS – MISMA MEDIDA QUE LA 2DA IMAGEN
+   NOTICIAS
 ================================ */
-
 #noticias .card {
   height: 100%;
   display: flex;
   flex-direction: column;
 }
 
-/* TODAS las imágenes con la misma altura */
 #noticias .card img {
   width: 100%;
   height: 350px;
-  /* 🔴 MISMA MEDIDA que la segunda imagen */
   object-fit: cover;
-  /* recorta sin deformar */
 }
 
-/* Cuerpo flexible */
 #noticias .card-body {
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 
-/* Botón alineado abajo */
 #noticias .card-body .btn {
   margin-top: auto;
 }
 
-
 /* ===============================
-   HERO – IMAGEN DE FONDO
+   FILTROS EVENTOS
 ================================ */
 .filtros-eventos {
   border: 1px solid #dee2e6;
@@ -367,9 +347,8 @@ header,
   border-radius: 20px;
 }
 
-
 /* ===============================
-    TÍTULO PÁGINA INFORMÁTICA 
+   TÍTULO INFORMÁTICA
 ================================ */
 .lema {
   font-style: italic;
@@ -377,5 +356,22 @@ header,
   color: #483bff;
 }
 
+/* ===============================
+   CONTADOR
+================================ */
+.contador {
+  white-space: nowrap;
+  font-size: 42px;
+  font-weight: 700;
+}
 
+.contador::after {
+  content: "+";
+  margin-left: 4px;
+  font-size: 28px;
+}
 
+.map-container {
+  min-height: 360px;
+  border-radius: 14px;
+}

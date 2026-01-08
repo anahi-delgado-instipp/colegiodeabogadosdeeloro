@@ -3,17 +3,30 @@
 {% block title %}Acceso denegado{% endblock %}
 
 {% block content %}
-<div class="container-fluid mt-5 ">
+<div class="container-fluid mt-5">
   <div class="row justify-content-center">
-    <div class="col-md-6">
-      <div class="bg-gradient-green text-center">
-        <h4> Acceso denegado</h4>
-        <p>No tienes permisos autorizados para acceder a esta sección.</p>
-        <a href="{% url 'dashboard' %}" class="btn btn-primary mt-3">
-          Volver al dashboard
-        </a>
+    <div class="col-md-6 col-lg-5">
+
+      <div class="card border-0 shadow-lg text-center animate__animated animate__fadeInDown">
+
+        <div class="card-body py-5 bg-gradient-green text-white rounded">
+          <i class="bi bi-shield-lock-fill mb-3" style="font-size: 3.5rem;"></i>
+
+          <h4 class="fw-bold mb-2">Acceso denegado</h4>
+
+          <p class="mb-4">
+            No tienes permisos autorizados para acceder a esta sección del sistema.
+          </p>
+
+          <a href="{% url 'dashboard' %}" class="btn btn-primary px-4 fw-semibold">
+            Volver al dashboard
+          </a>
+        </div>
+
       </div>
+
     </div>
   </div>
 </div>
+
 {% endblock %}

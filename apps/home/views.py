@@ -475,17 +475,34 @@ def password_reset_confirm(request):
 @login_required(login_url="/login/")
 def tabladocumentos(request):
     documentos = Baselegal.objects.all().order_by('-fecha')
-
     return render(request, "home/tabladocumentos.html", {
         "documentos": documentos,
         "segment": "tabladocumentos"
     })
 
-def biblioteca_legal(request):
-    documentos = Baselegal.objects.all()
-    return render(request, 'informativa/biblioteca_legal.html', {
-        'documentos': documentos
+
+
+def base_legal(request):
+    documentos_base = Baselegal.objects.filter(
+        tipo='base legal'
+    ).order_by('-fecha')
+
+    return render(request, 'informativa/pagina_informatica.html', {
+        'documentos_base': documentos_base
     })
+
+
+def biblioteca_legal(request):
+    documentos_biblioteca = Baselegal.objects.filter(
+        tipo='biblioteca'
+    ).order_by('-fecha')
+
+    return render(request, 'informativa/biblioteca_legal.html', {
+        'documentos_biblioteca': documentos_biblioteca
+    })
+
+
+
 
 
 

@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{% block title %}Colegio de Abogados de El Oro{% endblock %}</title>
+
+  <meta name="description" content="Colegio de Abogados de El Oro">
+  <meta name="keywords" content="abogados, derecho, colegio de abogados">
+
+  <link rel="icon" href="{% static 'assets/img/logo/logoemp.png' %}" type="image/png">
+
+  <!-- Vendor CSS -->
+  <link href="{% static 'assets/vendor/bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/css/argon.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/css/personalizado.css' %}" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header id="header" class="header fixed-top bg-verde-oro">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="{% url 'pagina_informatica' %}" class="nav-logo">
+        <img src="{% static 'assets/img/logo/logoemp.png' %}" alt="Colegio de Abogados">
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul class="nav-links">
+          <li><a href="{% url 'pagina_informatica' %}#hero">Inicio</a></li>
+          <li><a href="{% url 'pagina_informatica' %}#about">Nosotros</a></li>
+          <li><a href="{% url 'pagina_informatica' %}#events">Eventos</a></li>
+          <li><a href="{% url 'pagina_informatica' %}#testimonials">Testimonios</a></li>
+          <li><a href="{% url 'pagina_informatica' %}#team">Equipo</a></li>
+          <li><a href="{% url 'pagina_informatica' %}#noticias">Noticias</a></li>
+          <li><a href="{% url 'pagina_informatica' %}#contact">Contacto</a></li>
+          <li>
+            <a href="{% url 'login' %}">
+              <i class="bi bi-people"></i> Iniciar sesión
+            </a>
+          </li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+  <!-- END HEADER -->
+
+  <main class="main-content" style="margin-top:90px;">
+    {% block content %}{% endblock %}
+  </main>
+
+</body>
+</html>

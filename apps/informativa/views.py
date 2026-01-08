@@ -9,9 +9,15 @@ def pagina_informatica(request):
 
     eventos = Evento.objects.all().order_by('-fecha_inicio')
     noticias = Noticia.objects.all().order_by('-fecha_publicacion')
-    documentos_base = Baselegal.objects.filter(tipo="Base Legal").order_by('-fecha')
-    documentos_biblioteca = Baselegal.objects.filter(tipo="Biblioteca Legal").order_by('-fecha')
 
+    # ✅ EXACTAMENTE como está en la BD
+    documentos_base = Baselegal.objects.filter(
+        tipo="base legal"
+    ).order_by('-fecha')
+
+    documentos_biblioteca = Baselegal.objects.filter(
+        tipo="biblioteca"
+    ).order_by('-fecha')
 
     if request.method == 'POST':
         name = request.POST.get('name')
@@ -19,7 +25,6 @@ def pagina_informatica(request):
         subject = request.POST.get('subject')
         message = request.POST.get('message')
 
-        # Guardar en BD
         ContactMessage.objects.create(
             name=name,
             email=email,
@@ -27,8 +32,9 @@ def pagina_informatica(request):
             message=message
         )
 
-        # Mensaje de correo
-        mensaje_email = f"""
+        send_mail(
+            subject=f"Contacto Servicios: {subject}",
+            message=f"""
 Nuevo mensaje desde la web
 
 Nombre: {name}
@@ -36,20 +42,13 @@ Correo: {email}
 
 Mensaje:
 {message}
-        """
-
-        # Enviar correo
-        send_mail(
-            subject=f"Contacto Servicios: {subject}",
-            message=mensaje_email,
+            """,
             from_email=settings.EMAIL_HOST_USER,
             recipient_list=['colegiodeabo@gmail.com'],
             fail_silently=False,
         )
 
-        # Mensaje flash
         messages.success(request, "¡Tu mensaje fue enviado correctamente!")
-
         return redirect('pagina_informatica')
 
     return render(request, 'informativa/pagina_informatica.html', {
@@ -58,3 +57,4 @@ Mensaje:
         "documentos_base": documentos_base,
         "documentos_biblioteca": documentos_biblioteca,
     })
+

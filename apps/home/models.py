@@ -54,15 +54,15 @@ class Perfil(models.Model):
 class Baselegal(models.Model):
 
     TIPO_CHOICES = [
-        ('BASE', 'Base Legal'),
-        ('BIBLIOTECA', 'Biblioteca Legal'),
+        ('base legal', 'Base Legal'),
+        ('biblioteca legal', 'Biblioteca Legal'),
     ]
   
     tema = models.CharField(max_length=200)
     descripcion = models.TextField()
     archivo = models.FileField(upload_to='documentos/')
     fecha = models.DateField(auto_now_add=True)
-    tipo = models.CharField(max_length=30, choices=TIPO_CHOICES, default='BASE')
+    tipo = models.CharField(max_length=30, choices=TIPO_CHOICES)
 
     def __str__(self):
         return self.tema
