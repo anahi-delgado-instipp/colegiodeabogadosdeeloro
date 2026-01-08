@@ -13,7 +13,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = config(
+    'SECRET_KEY',
+    default='django-insecure-temporal-para-build'
+)
+
+
 
 
 
@@ -25,8 +30,10 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 # load production server from .env
 ALLOWED_HOSTS = config(
     'ALLOWED_HOSTS',
-    default='localhost,127.0.0.1,.onrender.com'
-).split(',')
+    default='localhost,127.0.0.1,.onrender.com',
+    cast=lambda v: [s.strip() for s in v.split(',')]
+)
+
 
 
 
@@ -89,6 +96,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 #     }
 # }
 
+import dj_database_url
 DATABASES = {
     'default': dj_database_url.config(
         default='sqlite:///' + str(BASE_DIR / 'db.sqlite3')
@@ -128,7 +136,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='')
 
 # =======================
