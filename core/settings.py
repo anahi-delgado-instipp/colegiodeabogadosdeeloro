@@ -23,7 +23,10 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 
 # load production server from .env
-ALLOWED_HOSTS = ['colegiodeabogadosdeeloro-c.onrender.com']
+ALLOWED_HOSTS = config(
+    'ALLOWED_HOSTS',
+    default='localhost,127.0.0.1,.onrender.com'
+).split(',')
 
 
 
@@ -86,13 +89,12 @@ WSGI_APPLICATION = 'core.wsgi.application'
 #     }
 # }
 
-import dj_database_url
-
 DATABASES = {
     'default': dj_database_url.config(
-        default=config('DATABASE_URL')
+        default='sqlite:///' + str(BASE_DIR / 'db.sqlite3')
     )
 }
+
 
 
 AUTH_PASSWORD_VALIDATORS = [
