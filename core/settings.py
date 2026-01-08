@@ -23,7 +23,7 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 
 # load production server from .env
-ALLOWED_HOSTS = ['.onrender.com']
+ALLOWED_HOSTS = ['colegiodeabogadosdeeloro-c.onrender.com']
 
 
 
